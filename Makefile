@@ -6,7 +6,7 @@
 #    By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 15:29:04 by sbenes            #+#    #+#              #
-#    Updated: 2023/05/07 16:50:35 by sbenes           ###   ########.fr        #
+#    Updated: 2023/05/07 17:10:47 by sbenes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ INC =	-I ./include/\
 
 #sources
 SRC_PATH =	src/
-SRC = 	main.c
+SRC = 	fractol.c
 SRCS =	$(addprefix $(SRC_PATH), $(SRC))
 
 #objects
@@ -71,8 +71,8 @@ bonus: all
 clean:
 	@echo "[ Removing object files ]"
 	@rm -Rf $(OBJ_PATH)
-	@make clean -C $(MLX_PATH)
-	@make clean -C $(LIBFT_PATH)
+	@make clean -sC $(MLX_PATH)
+	@make clean -sC $(LIBFT_PATH)
 
 fclean:
 	@echo "[ Removing program ]"
