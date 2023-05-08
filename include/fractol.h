@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/08 11:06:40 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/08 11:38:14 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 
 # include "../libft/libft.h"
 # include "../libft/ft_printf.h"
+# include "../mlx/mlx.h"
 # include <unistd.h>
 # include <limits.h>
 # include <math.h>
+
+# define WIDTH 1280
+# define HEIGHT 960
 
 enum e_keymap
 {
@@ -51,3 +55,6 @@ typedef struct s_img
 }	t_image;
 
 # endif
+
+/* Draw fractals functions */
+void draw_mandelbrot(void *mlx_ptr, void *win_ptr);

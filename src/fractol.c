@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:49:40 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/08 11:15:24 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/08 11:36:45 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	main()
 	if (!test.mlx_ptr || !test.window_ptr)
 		return (1);
 	/* creates image and draws a test triangle */
-	ft_draw_triangle(test.mlx_ptr, test.window_ptr);
+	draw_mandelbrot(test.mlx_ptr, test.window_ptr);
 	/* Put string into the window */
 	mlx_string_put(test.mlx_ptr, test.window_ptr, 10, 20, 0xFFFFFF, "Hello");
 	/* Hook up the key and mouse events */
