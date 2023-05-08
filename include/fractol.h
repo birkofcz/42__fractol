@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/07 17:14:41 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/08 11:06:40 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 enum e_keymap
 {
+	EXIT_BUTTON = 17,
 	KEY_ESC = 65307,
 	KEY_UP = 65362,
 	KEY_DOWN = 65364,
@@ -34,19 +35,19 @@ enum e_keymap
 
 typedef struct s_window
 {
-	void	*mlx;
-	void	*window;
+	void	*mlx_ptr;
+	void	*window_ptr;
 	int		height;
 	int		width;
 }	t_window;
 
 typedef struct s_img
 {
-	void	*img;
-	void	*addr;
-	int		bits_per_pixel;
-	int		line_lengh;
+	void	*img_ptr;
+	char	*data;
+	int		bpp;
+	int		line_size;
 	int		endian;
-}	t_img;
+}	t_image;
 
 # endif
