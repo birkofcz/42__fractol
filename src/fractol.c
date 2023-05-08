@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:49:40 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/08 11:03:57 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/08 11:15:24 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,22 +79,20 @@ void	ft_draw_triangle(void *mlx_ptr, void *window_ptr)
 int	main()
 {
 	t_window	test;
-	//t_img		img;
 
 	test = ft_new_instance(1280, 960, "Test window");
 	if (!test.mlx_ptr || !test.window_ptr)
 		return (1);
-	//img.img = mlx_new_image(test.mlx, 300, 300);
-	// Writing some pixels - test
-/* 	mlx_pixel_put(test.mlx, test.window, 300/2, 300/2, 0xFFFFFF);
-	mlx_pixel_put(test.mlx, test.window, 300/2 + 1, 300/2, 0xFFFFFF);
-	mlx_pixel_put(test.mlx, test.window, 300/2 + 2, 300/2, 0xFFFFFF);
-	// Putting a string in
-	mlx_string_put(test.mlx, test.window, 10, 20, 0xFFFFFF, "Hello"); */
+	/* creates image and draws a test triangle */
 	ft_draw_triangle(test.mlx_ptr, test.window_ptr);
+	/* Put string into the window */
+	mlx_string_put(test.mlx_ptr, test.window_ptr, 10, 20, 0xFFFFFF, "Hello");
+	/* Hook up the key and mouse events */
 	mlx_key_hook(test.window_ptr, ft_handle_exit, &test);
 	mlx_mouse_hook(test.window_ptr, ft_handle_exit, &test);
-	mlx_hook(test.window_ptr, 17, 0, close_window, &test);
+	/* Hooks up a click on exit button event (int 17) */
+	mlx_hook(test.window_ptr, EXIT_BUTTON, 0, close_window, &test);
+	/* Keeps the window open until closed */
 	mlx_loop(test.mlx_ptr);
 	return (0);
 }
