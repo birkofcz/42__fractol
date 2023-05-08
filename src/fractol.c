@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:49:40 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/07 17:13:39 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/08 10:16:55 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_handle_exit(int key, t_window *test)
 {
 	if (key == KEY_ESC)
 	{
-		ft_printf("Keypress event: %d\n", key);
+		ft_printf("Keypress event: %d\n", key); // for the check, delete after
 		mlx_destroy_window(test->mlx, test->window);
 		exit(0);
 	}
@@ -41,8 +41,17 @@ int	ft_handle_exit(int key, t_window *test)
 	(void)test;
 	ft_printf("Key pressed: %d\n", key);
 	return (0);
+} */
+
+
+int	close_window(t_window *test)
+{
+	ft_printf("Close button clicked\n"); // for the check! delete after
+	mlx_destroy_window(test->mlx, test->window);
+	exit(0);
+	return (0);
+
 }
- */
 
 int	main()
 {
@@ -62,6 +71,7 @@ int	main()
 	
 	mlx_key_hook(test.window, ft_handle_exit, &test);
 	mlx_mouse_hook(test.window, ft_handle_exit, &test);
+	mlx_hook(test.window, 17, 0, close_window, &test);
 	mlx_loop(test.mlx);
 	return (0);
 }
