@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/08 11:38:14 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/08 14:02:17 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,25 @@ typedef struct s_img
 	int		endian;
 }	t_image;
 
+typedef struct s_mandelbrot
+{
+    double x_min;
+    double x_max;
+    double y_min;
+    double y_max;
+    double zoom;
+    int max_iterations;
+} t_mandelbrot;
+
 # endif
 
 /* Draw fractals functions */
 void draw_mandelbrot(void *mlx_ptr, void *win_ptr);
+void draw_sierpinski(void *mlx_ptr, void *win_ptr);
+void draw_koch_snowflake(void *mlx_ptr, void *win_ptr);
+void draw_tree(void *mlx_ptr, void *win_ptr);
+
+/* Utilities */
+void zoom_mandelbrot(t_mandelbrot *params, int x, int y, double zoom_factor);
+
+

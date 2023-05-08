@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 11:19:21 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/08 11:58:15 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/08 14:03:14 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,20 @@ int mandelbrot_iterations(double c_re, double c_im, int max_iterations)
     return iterations;
 }
 
+/* void zoom_mandelbrot(t_mandelbrot *params, int x, int y, double zoom_factor)
+{
+    double real = params->x_min + (params->x_max - params->x_min) * x / WIDTH;
+    double imag = params->y_min + (params->y_max - params->y_min) * y / HEIGHT;
+
+    double new_width = (params->x_max - params->x_min) / zoom_factor;
+    double new_height = (params->y_max - params->y_min) / zoom_factor;
+
+    params->x_min = real - new_width / 2;
+    params->x_max = real + new_width / 2;
+    params->y_min = imag - new_height / 2;
+    params->y_max = imag + new_height / 2;
+} */
+
 void draw_mandelbrot(void *mlx_ptr, void *win_ptr)
 {
     t_image img;
@@ -64,7 +78,7 @@ void draw_mandelbrot(void *mlx_ptr, void *win_ptr)
             
         }
     }
-
     mlx_put_image_to_window(mlx_ptr, win_ptr, img.img_ptr, 0, 0);
     mlx_destroy_image(mlx_ptr, img.img_ptr);
-}
+} 
+

@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:49:40 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/08 11:36:45 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/08 14:02:44 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	close_window(t_window *test)
 
 }
 
-void	ft_draw_triangle(void *mlx_ptr, void *window_ptr)
+/* void	ft_draw_triangle(void *mlx_ptr, void *window_ptr)
 {
 	int x;
 	int y;
@@ -74,7 +74,8 @@ void	ft_draw_triangle(void *mlx_ptr, void *window_ptr)
 	} 
 	mlx_put_image_to_window(mlx_ptr, window_ptr, triangle.img_ptr, 80, 0);
 	mlx_destroy_image(mlx_ptr, triangle.img_ptr);
-}
+} */
+
 
 int	main()
 {
