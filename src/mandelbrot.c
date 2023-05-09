@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 11:19:21 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/08 14:19:44 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/09 15:13:41 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int mandelbrot_iterations(double c_re, double c_im, int max_iterations)
 
 
 
-void draw_mandelbrot(void *mlx_ptr, void *win_ptr)
+/* void draw_mandelbrot(void *mlx_ptr, void *win_ptr)
 {
     t_image img;
     int x, y;
@@ -68,5 +68,5 @@ void draw_mandelbrot(void *mlx_ptr, void *win_ptr)
     }
     mlx_put_image_to_window(mlx_ptr, win_ptr, img.img_ptr, 0, 0);
     mlx_destroy_image(mlx_ptr, img.img_ptr);
-} 
+}  */
 

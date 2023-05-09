@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:49:40 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/08 14:21:39 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/09 15:25:18 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,7 @@
 #include "../libft/ft_printf.h"
 #include "../include/fractol.h"
 
-/* This function will create a new program instance - initialize new window */
-t_window ft_new_instance(int w, int h, char *s)
-{
-	void *mlx_ptr;
-
-	mlx_ptr = mlx_init();
-	return ((t_window) {mlx_ptr, mlx_new_window(mlx_ptr, w, h, s), w, h});
-}
-
+/* 
 int	ft_handle_exit(int key, t_window *test)
 {
 	if (key == KEY_ESC)
@@ -33,7 +25,7 @@ int	ft_handle_exit(int key, t_window *test)
 		exit(0);
 	}
 	return (0);
-}
+} */ 
 
 /* Utility - to map keys and mouse clicks */
 /* int keymap(int key, t_window *test)
@@ -44,14 +36,14 @@ int	ft_handle_exit(int key, t_window *test)
 } */
 
 
-int	close_window(t_window *test)
+/* int	close_window(t_window *test)
 {
 	ft_printf("Close button clicked\n"); // for the check! delete after
 	mlx_destroy_window(test->mlx_ptr, test->window_ptr);
 	exit(0);
 	return (0);
 
-}
+} */
 
 /* void	ft_draw_triangle(void *mlx_ptr, void *window_ptr)
 {
@@ -77,23 +69,18 @@ int	close_window(t_window *test)
 } */
 
 
-int	main()
+int	main(int ac, char **av)
 {
-	t_window	test;
+	t_fractal f;
 
-	test = ft_new_instance(1280, 960, "Test window");
-	if (!test.mlx_ptr || !test.window_ptr)
-		return (1);
-	/* creates image and draws a test triangle */
-	draw_julia_set(test.mlx_ptr, test.window_ptr);
-	/* Put string into the window */
+	if (ac < 2)
+		ft_help();
+	ft_init_fractal(&f, ft_atoi(av[1]));
+	/* draw_sierpinski(test.mlx_ptr, test.window_ptr);
 	mlx_string_put(test.mlx_ptr, test.window_ptr, 10, 20, 0xFFFFFF, "Hello");
-	/* Hook up the key and mouse events */
 	mlx_key_hook(test.window_ptr, ft_handle_exit, &test);
 	mlx_mouse_hook(test.window_ptr, ft_handle_exit, &test);
-	/* Hooks up a click on exit button event (int 17) */
 	mlx_hook(test.window_ptr, EXIT_BUTTON, 0, close_window, &test);
-	/* Keeps the window open until closed */
-	mlx_loop(test.mlx_ptr);
+	mlx_loop(test.mlx_ptr); */
 	return (0);
 }
