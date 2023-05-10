@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/09 15:24:27 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/10 15:48:20 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,25 +42,10 @@ enum e_keymap
 enum e_fractal
 {
 	MANDELBROT = 1,
-	JULIA = 2
+	JULIA = 2,
+	SIERPINSKI = 3
 };
 
-/* typedef struct s_window
-{
-	void	*mlx_ptr;
-	void	*window_ptr;
-	int		height;
-	int		width;
-}	t_window;
-
-typedef struct s_img
-{
-	void	*img_ptr;
-	char	*data;
-	int		bpp;
-	int		line_size;
-	int		endian;
-}	t_image; */
 
 /* Basic struct to hold the instance and fractal information */
 typedef struct s_fractal
@@ -70,11 +55,16 @@ typedef struct s_fractal
 	void	*img_p;
 	char	*img_data;
 	int		f_set;		//chosen fractal set identificator
+	double	min_r;
+	double	max_r;
+	double	min_i;
+	double	max_i;
+	double	start_r;	// real starting point
+	double	start_i;	// imagonary starting point
 	double	nr; 		//real part of complex number
 	double	ni;			//imaginary part of complex number
 	int		color_scheme;
-
-
+	char	**arg;
 }	t_fractal;
 
 # endif
@@ -83,7 +73,7 @@ typedef struct s_fractal
 void	ft_help();
 
 /* init.c - initialization of mlx, win, img and fractal info */
-void	ft_init_fractal(t_fractal *f, int set);
+void	ft_init_fractal(t_fractal *f);
 void	ft_init_mlx_win(t_fractal *f);
 void	ft_init_img(t_fractal *f);
 
