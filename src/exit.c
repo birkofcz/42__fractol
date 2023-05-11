@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:33:43 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/09 14:41:32 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/11 16:18:40 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,10 @@ void	ft_clean_exit(t_fractal *f)
 		free(f->mlx_p);
 	}
 	exit(0);
+}
+
+int	ft_endgame(t_fractal *f)
+{
+	ft_clean_exit(f);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:48:26 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/11 12:07:55 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/11 16:32:05 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ void print_fractal_state(const t_fractal *f)
     printf("f->max_i: %f\n", f->max_i);
     printf("f->start_r: %f\n", f->start_r);
     printf("f->start_i: %f\n", f->start_i);
-    printf("f->nr: %f\n", f->nr);
-    printf("f->ni: %f\n", f->ni);
     printf("f->color_scheme: %d\n", f->color_scheme);
     //printf("f->arg: %s\n", (f->arg == NULL) ? "null" : f->arg);
 }

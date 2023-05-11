@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/11 14:51:33 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/11 16:29:36 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,11 @@ typedef struct s_fractal
 	double	min_i;
 	double	max_i;
 	double	start_r;	// real starting point
-	double	start_i;	// imagonary starting point
-	double	nr; 		//real part of complex number
-	double	ni;			//imaginary part of complex number
+	double	start_i;	// imaginary starting point
 	int		color_scheme;
 	double	sx;
 	double	rx;
 	double	fx;
-	char	**arg;
 }	t_fractal;
 
 # endif
@@ -90,10 +87,12 @@ void	ft_init_img(t_fractal *f); */
 
 /* exit.c - clean exit for the program */
 void	ft_clean_exit(t_fractal *f);
+int		ft_endgame(t_fractal *f);
+
 
 /* Draw fractals functions */
 int	ft_mandelbrot(double cr, double ci);
-
+int	ft_julia(t_fractal *f, double cr, double ci);
 
 /* utilities.c */
 double	ft_atof(char *str);
@@ -101,6 +100,9 @@ void	print_fractal_state(const t_fractal *f);
 
 /* render.c */
 void	ft_render(t_fractal *f);
+
+/* events.c */
+int	ft_key_event_handling(int key, t_fractal *f);
 
 
 

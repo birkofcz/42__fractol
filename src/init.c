@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:24:11 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/11 14:50:26 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/11 16:31:28 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,10 @@ void	ft_init_fractal(t_fractal *f)
 	f->max_i = 0;
 	f->start_r = 0;
 	f->start_i = 0;
-	f->nr = 0;		//real part of complex number
-	f->ni = 0;	//imaginary part of complex number
 	f->sx = 0;
 	f->rx = 0;
 	f->fx = 0;
 	f->color_scheme = 0;
-	f->arg = NULL;
 }
 
 void	ft_layout(t_fractal *f)
