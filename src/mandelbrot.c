@@ -6,38 +6,13 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 11:19:21 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/11 11:56:54 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/11 14:41:07 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
 /* TESTING THE MANDELBROT SET */
-
-int mandelbrot_iterations(double c_re, double c_im, int max_iterations)
-{
-    double z_re = 0, z_im = 0;
-    int iterations = 0;
-    double z_re_squared, z_im_squared;
-
-    while (iterations < max_iterations)
-    {
-        z_re_squared = z_re * z_re;
-        z_im_squared = z_im * z_im;
-
-        if (z_re_squared + z_im_squared > 4)
-            break;
-
-        z_im = 2 * z_re * z_im + c_im;
-        z_re = z_re_squared - z_im_squared + c_re;
-
-        iterations++;
-    }
-
-    return iterations;
-}
-
-
 
 /* void draw_mandelbrot(void *mlx_ptr, void *win_ptr)
 {
@@ -70,3 +45,24 @@ int mandelbrot_iterations(double c_re, double c_im, int max_iterations)
     mlx_destroy_image(mlx_ptr, img.img_ptr);
 }  */
 
+int	ft_mandelbrot(double cr, double ci)
+{
+	int		n;
+	double	zr;
+	double	zi;
+	double	tmp;
+
+	zr = 0;
+	zi = 0;
+	n = 0;
+	while (n < MAX_ITERATIONS)
+	{
+		if ((zr * zr + zi * zi) > 4.0)
+			break ;
+		tmp = 2 * zr * zi + ci;
+		zr = zr * zr - zi * zi + cr;
+		zi = tmp;
+		n++;
+	}
+	return (n);
+}

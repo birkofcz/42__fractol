@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:49:40 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/11 12:04:04 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/11 14:34:51 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,13 @@ int	main(int ac, char **av)
 	ft_read_set(&f, av);
 	ft_handle_arguments(&f, ac, av);
 	print_fractal_state(&f);
-
-	/* draw_sierpinski(test.mlx_ptr, test.window_ptr);
-	mlx_string_put(test.mlx_ptr, test.window_ptr, 10, 20, 0xFFFFFF, "Hello");
-	mlx_key_hook(test.window_ptr, ft_handle_exit, &test);
-	mlx_mouse_hook(test.window_ptr, ft_handle_exit, &test);
-	mlx_hook(test.window_ptr, EXIT_BUTTON, 0, close_window, &test);
-	mlx_loop(test.mlx_ptr); */
-	return (0);
+	ft_init_mlx(&f);
+	ft_init_image(&f);
+	ft_render(&f);
+	print_fractal_state(&f);
+	//print controls
+	//mlx_hook
+	//mlx_key_hook
+	//mlx_mouse_hook
+	mlx_loop(f.mlx_p);
 }

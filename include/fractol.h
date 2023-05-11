@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/11 12:06:28 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/11 14:51:33 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 # include <math.h>
 
 /* Window and image dimensions */
-# define WIDTH 1280
-# define HEIGHT 960
+# define WIDTH 1000
+# define HEIGHT 1000
+# define MAX_ITERATIONS 60
 
 /* Keymap for event handling */
 enum e_keymap
@@ -64,6 +65,9 @@ typedef struct s_fractal
 	double	nr; 		//real part of complex number
 	double	ni;			//imaginary part of complex number
 	int		color_scheme;
+	double	sx;
+	double	rx;
+	double	fx;
 	char	**arg;
 }	t_fractal;
 
@@ -78,6 +82,9 @@ void	ft_read_set(t_fractal *f, char **av);
 void	ft_read_julia_values(t_fractal *f, int ac, char **av);
 void	ft_handle_arguments(t_fractal *f, int ac, char **av);
 
+void	ft_init_mlx(t_fractal *f);
+void	ft_init_image(t_fractal *f);
+
 /* void	ft_init_mlx_win(t_fractal *f);
 void	ft_init_img(t_fractal *f); */
 
@@ -85,14 +92,15 @@ void	ft_init_img(t_fractal *f); */
 void	ft_clean_exit(t_fractal *f);
 
 /* Draw fractals functions */
-void draw_mandelbrot(void *mlx_ptr, void *win_ptr);
-void draw_julia_set(void *mlx_ptr, void *win_ptr);
-void draw_sierpinski(void *mlx_ptr, void *win_ptr);
-void draw_koch_snowflake(void *mlx_ptr, void *win_ptr);
-void draw_tree(void *mlx_ptr, void *win_ptr);
+int	ft_mandelbrot(double cr, double ci);
+
 
 /* utilities.c */
 double	ft_atof(char *str);
 void	print_fractal_state(const t_fractal *f);
+
+/* render.c */
+void	ft_render(t_fractal *f);
+
 
 
