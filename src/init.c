@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:40:54 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/10 15:48:20 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/11 12:11:31 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ void	ft_read_set(t_fractal *f, char **av)
 		f->f_set = JULIA;
 	else if (ft_atoi(av[1]) == 3)
 		f->f_set = SIERPINSKI;
+	else
+	{
+		ft_help();
+		exit(0);
+	}
 }
 
 void	ft_read_julia_values(t_fractal *f, int ac, char **av)

@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/10 15:48:20 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/11 12:06:28 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,15 @@ void	ft_help();
 
 /* init.c - initialization of mlx, win, img and fractal info */
 void	ft_init_fractal(t_fractal *f);
-void	ft_init_mlx_win(t_fractal *f);
-void	ft_init_img(t_fractal *f);
+void	ft_read_set(t_fractal *f, char **av);
+void	ft_read_julia_values(t_fractal *f, int ac, char **av);
+void	ft_handle_arguments(t_fractal *f, int ac, char **av);
+
+/* void	ft_init_mlx_win(t_fractal *f);
+void	ft_init_img(t_fractal *f); */
 
 /* exit.c - clean exit for the program */
 void	ft_clean_exit(t_fractal *f);
-
-
 
 /* Draw fractals functions */
 void draw_mandelbrot(void *mlx_ptr, void *win_ptr);
@@ -89,4 +91,8 @@ void draw_sierpinski(void *mlx_ptr, void *win_ptr);
 void draw_koch_snowflake(void *mlx_ptr, void *win_ptr);
 void draw_tree(void *mlx_ptr, void *win_ptr);
 
-/* Utilities */
+/* utilities.c */
+double	ft_atof(char *str);
+void	print_fractal_state(const t_fractal *f);
+
+
