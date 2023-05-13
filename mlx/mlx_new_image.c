@@ -12,6 +12,7 @@
 
 
 #include	"mlx_int.h"
+#pragma GCC diagnostic ignored "-Wunused-result"
 
 /*
 ** To handle X errors

@@ -10,6 +10,14 @@
 #                                                                              #
 # **************************************************************************** #
 
+
+#color and formatting defs:
+BOLD =	\033[1m
+GREEN =	\033[32m
+RED =	\033[31m
+NC =	\033[0m
+
+
 #name
 NAME = 		fractol
 
@@ -55,28 +63,28 @@ $(OBJ_PATH):
 	@mkdir $(OBJ_PATH)
 
 $(MLX):
-	@echo "[ Making MiniLibX ]"
+	@echo "$(BOLD)$(GREEN)[ 🙈 Making MiniLibX... ]$(NC)"
 	@make -sC $(MLX_PATH)
 
 $(LIBFT):
-	@echo "[ Making libft ]"
+	@echo "$(BOLD)$(GREEN)[ 🙉 Making libft... ]$(NC)"
 	@make -sC $(LIBFT_PATH)
 
 $(NAME): $(OBJS)
-	@echo "[ Compiling program ]"
+	@echo "$(BOLD)$(GREEN)[ 🙊 Compiling shit together... ]$(NC)"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm
-	@echo "[ Program ready! ]"
+	@echo "$(BOLD)$(GREEN)[ 🪄 Program ready! ]$(NC)"
 
 bonus: all
 
 clean:
-	@echo "[ Removing object files ]"
+	@echo "$(BOLD)$(RED)[ 🔥 Purging object files ]$(NC)"
 	@rm -Rf $(OBJ_PATH)
 	@make clean -sC $(MLX_PATH)
 	@make clean -sC $(LIBFT_PATH)
 
 fclean:
-	@echo "[ Removing program ]"
+	@echo "$(BOLD)$(RED)[ 🔥 Removing program ]$(NC)"
 	@rm -f $(NAME)
 	@rm -f $(LIBFT_PATH)$(LIBFT_NAME)
 
