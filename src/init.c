@@ -6,16 +6,16 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:24:11 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/11 16:31:28 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/13 15:59:40 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
+
 /*	
 	FT_INIT_FRACTAL	
 	clean initialization for t_fractal struct.
 */
-
 void	ft_init_fractal(t_fractal *f)
 {
 	f->mlx_p = NULL;
@@ -61,9 +61,6 @@ void	ft_init_image(t_fractal *f)
 	int		endian;
 	char	*tmp;
 
-	//f->palette = ft_calloc((MAX_ITERATIONS + 1), sizeof(int)); here some initialization of color
-	/* if (!(f->palette))
-		clean_exit(msg("error initializing color scheme.", "", 1), f); */
 	f->img_p = mlx_new_image(f->mlx_p, WIDTH, HEIGHT);
 	if (!(f->img_p))
 		ft_clean_exit(f);
@@ -94,5 +91,4 @@ void	ft_init_mlx(t_fractal *f)
 	f->rx = 0.5;
 	f->fx = 1.0;
 	ft_layout(f);
-	//color_shift(f);
 }

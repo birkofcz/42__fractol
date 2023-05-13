@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/11 16:36:24 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/13 17:04:54 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int generate_neon_green_color(int iteration)
     return (red << 16) | (green << 8) | blue; 
 }
 
+
 void	set_pixel_color(t_fractal *f, int x, int y, int color)
 {
 		f->img_data[x * 4 + y * WIDTH * 4] = color;
@@ -58,6 +59,31 @@ void	set_pixel_color(t_fractal *f, int x, int y, int color)
 		f->img_data[x * 4 + y * WIDTH * 4 + 2] = color >> 16;
 		f->img_data[x * 4 + y * WIDTH * 4 + 3] = color >> 24;
 }
+
+int generate_gradient_color(int iteration)
+{
+    // Define your colors in RGB format
+    int colors[5][3] = {
+        {230, 188, 205},  // E6BCCD
+        {210, 149, 191},  // D295BF
+        {126, 82, 160},   // 7E52A0
+        {41, 39, 76},     // 29274C
+        {1, 42, 54}       // 012A36
+    };
+    
+    int num_colors = 5;  // Define the number of colors you are interpolating between
+    double t = (double)iteration / MAX_ITERATIONS;  // Normalize iteration count to range [0, 1]
+    int segment = (int)(t * (num_colors - 1));  // Determine which segment we're in
+    double local_t = fmod(t * (num_colors - 1), 1);  // Determine where we are within the segment
+
+    // Linearly interpolate between the two colors in the segment
+    int red = (int)((1 - local_t) * colors[segment][0] + local_t * colors[segment + 1][0]);
+    int green = (int)((1 - local_t) * colors[segment][1] + local_t * colors[segment + 1][1]);
+    int blue = (int)((1 - local_t) * colors[segment][2] + local_t * colors[segment + 1][2]);
+
+    return (red << 16) | (green << 8) | blue;
+}
+
 
 void ft_render(t_fractal *f)
 {

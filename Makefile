@@ -6,12 +6,12 @@
 #    By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 15:29:04 by sbenes            #+#    #+#              #
-#    Updated: 2023/05/11 16:25:40 by sbenes           ###   ########.fr        #
+#    Updated: 2023/05/13 16:24:43 by sbenes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-#color and formatting defs:
+#color and formatting definitions:
 BOLD =	\033[1m
 GREEN =	\033[32m
 RED =	\033[31m
@@ -43,7 +43,7 @@ INC =	-I ./include/\
 #sources
 SRC_PATH =	src/
 SRC = 	fractol.c mandelbrot.c julia.c init.c args.c exit.c help.c utilities.c render.c\
-		events.c
+		events.c 
 SRCS =	$(addprefix $(SRC_PATH), $(SRC))
 
 #objects

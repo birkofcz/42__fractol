@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:49:40 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/11 16:17:50 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/13 17:24:36 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,6 @@
 #include "../libft/libft.h"
 #include "../libft/ft_printf.h"
 #include "../include/fractol.h"
-
-/* 
-int	ft_handle_exit(int key, t_window *test)
-{
-	if (key == KEY_ESC)
-	{
-		ft_printf("Keypress event: %d\n", key); // for the check, delete after
-		mlx_destroy_window(test->mlx_ptr, test->window_ptr);
-		exit(0);
-	}
-	return (0);
-} */ 
-
-/* Utility - to map keys and mouse clicks */
-/* int keymap(int key, t_window *test)
-{
-	(void)test;
-	ft_printf("Key pressed: %d\n", key);
-	return (0);
-} */
-
-
-/* int	close_window(t_window *test)
-{
-	ft_printf("Close button clicked\n"); // for the check! delete after
-	mlx_destroy_window(test->mlx_ptr, test->window_ptr);
-	exit(0);
-	return (0);
-
-} */
 
 /* void	ft_draw_triangle(void *mlx_ptr, void *window_ptr)
 {
@@ -77,13 +47,13 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		ft_help();
 	ft_init_fractal(&f); //clean intialization
+	print_fractal_state(&f);
 	ft_read_set(&f, av);
 	ft_handle_arguments(&f, ac, av);
 	print_fractal_state(&f);
 	ft_init_mlx(&f);
 	ft_init_image(&f);
 	ft_render(&f);
-	print_fractal_state(&f);
 	//print controls
 	mlx_hook(f.win_p, EXIT_BUTTON, 0, ft_endgame, &f);
 	mlx_key_hook(f.win_p, ft_key_event_handling, &f);
