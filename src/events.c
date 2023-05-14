@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:02:56 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/14 13:27:42 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/14 16:05:46 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ int	ft_key_event(int key, t_fractal *f)
 		ft_move(f, 0.2, KEY_LEFT);
 	else if (key == KEY_RIGHT)
 		ft_move(f, 0.2, KEY_RIGHT);
+	else if (key == KEY_C)
+	{
+		if (f->color_scheme <= 2)
+			f->color_scheme += 1;
+		else
+			f->color_scheme = 1;
+	}
 	else
 		return (1);
 	ft_render(f);

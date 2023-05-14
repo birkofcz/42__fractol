@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/14 13:29:56 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/14 16:04:35 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,13 @@ enum e_fractal
 	SIERPINSKI = 3
 };
 
+/* Enum of available color sets */
+enum e_color
+{
+	COLOR_ELECTRICGREEN = 1,
+	COLOR_PSYCHADELIC = 2,
+	COLOR_DEPTHSOFHELL = 3
+};
 
 /* Basic struct to hold the instance and fractal information */
 typedef struct s_fractal
@@ -109,5 +116,9 @@ int		ft_mouse_event(int mouse, t_fractal *f);
 void	ft_zoom(t_fractal *f, double zoom);
 void	ft_move(t_fractal *f, double distance, int key);
 
+/* colors.c */
+int		ft_color_depthsofhell(int iteration);
+int		ft_color_electricgreen(int iteration);
+int		ft_color_psychadelic(int iteration);
 
 # endif

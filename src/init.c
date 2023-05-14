@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:24:11 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/13 15:59:40 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/14 15:55:02 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_init_fractal(t_fractal *f)
 	f->sx = 0;
 	f->rx = 0;
 	f->fx = 0;
-	f->color_scheme = 0;
+	f->color_scheme = 1;
 }
 
 void	ft_layout(t_fractal *f)
