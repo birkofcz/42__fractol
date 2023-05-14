@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/14 16:03:41 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/14 16:23:00 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,14 @@ int	ft_fractal_iterations(t_fractal *f, double pr, double pi)
 	return (iterations);
 }
 
-void	set_pixel_color(t_fractal *f, int x, int y, int color)
+void	ft_set_pixel_color(t_fractal *f, int x, int y, int color)
 {
-		f->img_data[x * 4 + y * WIDTH * 4] = color;
-		f->img_data[x * 4 + y * WIDTH * 4 + 1] = color >> 8;
-		f->img_data[x * 4 + y * WIDTH * 4 + 2] = color >> 16;
-		f->img_data[x * 4 + y * WIDTH * 4 + 3] = color >> 24;
+	f->img_data[x * 4 + y * WIDTH * 4] = color;
+	f->img_data[x * 4 + y * WIDTH * 4 + 1] = color >> 8;
+	f->img_data[x * 4 + y * WIDTH * 4 + 2] = color >> 16;
+	f->img_data[x * 4 + y * WIDTH * 4 + 3] = color >> 24;
 }
+
 
 int	ft_set_color(t_fractal *f, int interations)
 {
@@ -52,6 +53,7 @@ int	ft_set_color(t_fractal *f, int interations)
 		return (1);
 	return (color_scheme);
 }
+
 
 void ft_render(t_fractal *f)
 {
@@ -72,8 +74,10 @@ void ft_render(t_fractal *f)
             pi = f->min_i + (double)y * (f->max_i - f->min_i) / HEIGHT;
 
             iterations = ft_fractal_iterations(f, pr, pi);
-            set_pixel_color(f, x, y, ft_set_color(f, iterations));
+        	ft_set_pixel_color(f, x, y, ft_set_color(f, iterations));
         }
     }
     mlx_put_image_to_window(f->mlx_p, f->win_p, f->img_p, 0, 0);
+	ft_put_legend(f);
 }
+

@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/14 16:04:35 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/14 16:25:22 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,13 @@ void	ft_zoom(t_fractal *f, double zoom);
 void	ft_move(t_fractal *f, double distance, int key);
 
 /* colors.c */
-int		ft_color_depthsofhell(int iteration);
 int		ft_color_electricgreen(int iteration);
 int		ft_color_psychadelic(int iteration);
+int		ft_color_depthsofhell(int iteration);
+
+/* legend.c */
+void	ft_put_legend(t_fractal *f);
+char	*ft_put_set(t_fractal *f);
+
 
 # endif
