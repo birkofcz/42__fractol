@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:02:56 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/14 11:48:45 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/14 13:27:42 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int	ft_key_event(int key, t_fractal *f)
 {
+	ft_printf("key pressed: %d\n", key);
 	if (key == KEY_ESC)
 		ft_clean_exit(f);
 	else if (key == KEY_PLUS)

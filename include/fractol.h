@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/14 11:49:31 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/14 13:29:56 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ enum e_keymap
 	KEY_RIGHT = 65363,
 	KEY_PLUS = 61,
 	KEY_MINUS = 45,
+	KEY_C = 99,
 	MOUSE_LCLICK = 1,
 	MOUSE_RCLICK = 3,
 	MOUSE_ZOOMIN = 5,
@@ -92,8 +93,8 @@ int		ft_endgame(t_fractal *f);
 
 
 /* Draw fractals functions */
-int	ft_mandelbrot(double cr, double ci);
-int	ft_julia(t_fractal *f, double cr, double ci);
+int		ft_mandelbrot(double cr, double ci);
+int		ft_julia(t_fractal *f, double cr, double ci);
 
 /* utilities.c */
 double	ft_atof(char *str);
