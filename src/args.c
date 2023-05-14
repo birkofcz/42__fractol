@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:40:54 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/13 17:43:28 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/14 10:42:33 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,31 @@
 	FT_STRLOW
 	Making the argument lowercase for comparation purposes
  */
-/* static char *ft_strlow(char *str)
+static char *ft_strlow(char *str)
 {
 	char *str_low;
 	int	i;
 
 	str_low = str;
 	i = 0;
-	ft_printf("%s\n", str_low);
 	while (str_low[i] != '\0')
 	{
 		if (str_low[i] >= 'A' && str_low[i] <= 'Z')
 			str_low[i] = str_low[i] + 32;
 		i++;
 	}
-	ft_printf("%s\n", str_low);
 	return (str_low);
-} */
+}
+
+/* FT_COMPARE - to compare the arguments */
+
+static int	ft_compare_args(char *src, char* str)
+{
+	src = ft_strlow(src);
+	if (ft_strncmp(src, str, ft_strlen(str)) == 0)
+		return (0);
+	return (1);
+}
 
 /* 
 	FT_READ_SET
@@ -41,11 +49,11 @@
  */
 void	ft_read_set(t_fractal *f, char **av)
 {
-	if (ft_atoi(av[1]) == 1)
+	if ((ft_atoi(av[1]) == 1) || (ft_compare_args(av[1], "mandelbrot") == 0))
 		f->f_set = MANDELBROT;
-	else if (ft_atoi(av[1]) == 2) //|| ft_strncmp((ft_strlow(av[1])), "julia", ft_strlen("julia")) == 0)
+	else if ((ft_atoi(av[1]) == 2)|| (ft_compare_args(av[1], "julia") == 0))
 		f->f_set = JULIA;
-	else if (ft_atoi(av[1]) == 3) //|| ft_strncmp((ft_strlow(av[1])), "sierpinski", ft_strlen("sierpinski")))
+	else if ((ft_atoi(av[1]) == 3) || (ft_compare_args(av[1], "sierpinski") == 0)) 
 		f->f_set = SIERPINSKI;
 	else
 	{

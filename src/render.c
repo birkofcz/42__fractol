@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/13 17:04:54 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/14 11:21:28 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,9 @@ void ft_render(t_fractal *f)
     double pi;
     int iterations;
 
+	ft_printf("got to render part\n");
     mlx_clear_window(f->mlx_p, f->win_p);
+	ft_printf("Window cleared, going to render\n");
     y = -1;
     while (++y < HEIGHT)
     {

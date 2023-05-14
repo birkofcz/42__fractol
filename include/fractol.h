@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/11 16:29:36 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/14 11:37:43 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ enum e_keymap
 	KEY_DOWN = 65364,
 	KEY_LEFT = 65361,
 	KEY_RIGHT = 65363,
+	KEY_PLUS = 61,
+	KEY_MINUS = 45,
 	MOUSE_LCLICK = 1,
 	MOUSE_RCLICK = 3,
 	MOUSE_ZOOMIN = 5,
@@ -68,7 +70,6 @@ typedef struct s_fractal
 	double	fx;
 }	t_fractal;
 
-# endif
 
 /* help.c - prints the instruction */
 void	ft_help();
@@ -103,6 +104,9 @@ void	ft_render(t_fractal *f);
 
 /* events.c */
 int	ft_key_event_handling(int key, t_fractal *f);
+int	ft_mouse_event(int mouse, t_fractal *f);
+void	ft_zoom(t_fractal *f, double zoom);
+void	ft_move(t_fractal *f, double distance, int key);
 
 
-
+# endif

@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:49:40 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/13 17:24:36 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/14 11:23:34 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,19 @@ int	main(int ac, char **av)
 	print_fractal_state(&f);
 	ft_read_set(&f, av);
 	ft_handle_arguments(&f, ac, av);
+	ft_printf("\n");
 	print_fractal_state(&f);
 	ft_init_mlx(&f);
 	ft_init_image(&f);
 	ft_render(&f);
+
+	
 	//print controls
 	mlx_hook(f.win_p, EXIT_BUTTON, 0, ft_endgame, &f);
+	mlx_mouse_hook(f.win_p, ft_mouse_event, &f);
 	mlx_key_hook(f.win_p, ft_key_event_handling, &f);
+/* 	ft_printf("\n");
+	print_fractal_state(&f); */
 	//mlx_mouse_hook
 	mlx_loop(f.mlx_p);
 }
