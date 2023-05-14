@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/14 11:37:43 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/14 11:49:31 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ void	print_fractal_state(const t_fractal *f);
 void	ft_render(t_fractal *f);
 
 /* events.c */
-int	ft_key_event_handling(int key, t_fractal *f);
-int	ft_mouse_event(int mouse, t_fractal *f);
+int		ft_key_event(int key, t_fractal *f);
+int		ft_mouse_event(int mouse, t_fractal *f);
 void	ft_zoom(t_fractal *f, double zoom);
 void	ft_move(t_fractal *f, double distance, int key);
 

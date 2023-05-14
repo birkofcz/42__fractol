@@ -6,13 +6,13 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:49:40 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/14 11:23:34 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/14 11:50:22 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mlx/mlx.h"
+/* #include "../mlx/mlx.h"
 #include "../libft/libft.h"
-#include "../libft/ft_printf.h"
+#include "../libft/ft_printf.h" */
 #include "../include/fractol.h"
 
 /* void	ft_draw_triangle(void *mlx_ptr, void *window_ptr)
@@ -60,7 +60,7 @@ int	main(int ac, char **av)
 	//print controls
 	mlx_hook(f.win_p, EXIT_BUTTON, 0, ft_endgame, &f);
 	mlx_mouse_hook(f.win_p, ft_mouse_event, &f);
-	mlx_key_hook(f.win_p, ft_key_event_handling, &f);
+	mlx_key_hook(f.win_p, ft_key_event, &f);
 /* 	ft_printf("\n");
 	print_fractal_state(&f); */
 	//mlx_mouse_hook

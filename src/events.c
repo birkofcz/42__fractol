@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:02:56 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/14 11:35:46 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/14 11:48:45 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* Mouse a keys events */
 
-int	ft_key_event_handling(int key, t_fractal *f)
+int	ft_key_event(int key, t_fractal *f)
 {
 	if (key == KEY_ESC)
 		ft_clean_exit(f);
@@ -26,6 +26,12 @@ int	ft_key_event_handling(int key, t_fractal *f)
 		ft_move(f, 0.2, KEY_UP);
 	else if (key == KEY_DOWN)
 		ft_move(f, 0.2, KEY_DOWN);
+	else if (key == KEY_LEFT)
+		ft_move(f, 0.2, KEY_LEFT);
+	else if (key == KEY_RIGHT)
+		ft_move(f, 0.2, KEY_RIGHT);
+	else
+		return (1);
 	ft_render(f);
 	return (0);
 } 
@@ -75,12 +81,12 @@ void	ft_move(t_fractal *f, double distance, int key)
 	}
 	else if (key == KEY_DOWN)
 	{
-		f->min_i -= center_i * distance;
-		f->max_i -= center_i * distance;
+		f->min_i += center_i * distance;
+		f->max_i += center_i * distance;
 	}
 	else if (key == KEY_UP)
 	{
-		f->min_i += center_i * distance;
-		f->max_i += center_i * distance;
+		f->min_i -= center_i * distance;
+		f->max_i -= center_i * distance;
 	}
 }
