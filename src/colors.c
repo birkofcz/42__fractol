@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:30:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/16 12:27:01 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/16 16:03:31 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int ft_color_phoenix(int iteration)
     double t = (double)iteration / MAX_ITERATIONS;
 
     // Adjust t to highlight the structures in the Phoenix fractal
-    t = pow(t, 0.6);
+    t = pow(t, 0.5);
 
     // Calculate color components
     int red = (int)(255 * pow(1 - t, 3));
@@ -84,6 +84,17 @@ int ft_color_phoenix(int iteration)
 
     return (red << 16) | (green << 8) | blue;
 }
+
+int ft_color_blackwhite(int iteration) //this one for buddhabrot, looks nice like that
+{
+    double t = (double)iteration / MAX_ITERATIONS;
+    
+    // Calculate color components
+    int intensity = (int)(255 * t);
+    
+    return (intensity << 16) | (intensity << 8) | intensity;
+}
+
 
 /* int generate_basic(int iteration)
 {

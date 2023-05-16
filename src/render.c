@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/16 12:29:31 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/16 16:49:10 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ int	ft_fractal_iterations(t_fractal *f, double pr, double pi)
 		iterations = ft_mandelbrot(pr, pi);
 	else if (f->f_set == JULIA)
 		iterations = ft_julia(f, pr, pi);
-	else if (f->f_set == PHOENIX)
-		iterations = ft_phoenix(pr, pi, 0.544992, -0.47); //0.5667, -0.5
-	/*else if (f->set == MANDELBOX)
-		nb_iter = mandelbox(f, pr, pi); */
+	else if (f->f_set == BURNING_SHIP)
+		iterations = ft_burning_ship(pr, pi);
 	return (iterations);
 }
 
@@ -49,6 +47,8 @@ int	ft_set_color(t_fractal *f, int interations)
 		color_scheme = ft_color_depthsofhell(interations);
 	else if (f->color_scheme == COLOR_PHOENIX)
 		color_scheme = ft_color_phoenix(interations);
+	else if (f->color_scheme == COLOR_BW)
+		color_scheme = ft_color_blackwhite(interations);
 	else
 		return (1);
 	return (color_scheme);
@@ -63,21 +63,28 @@ void ft_render(t_fractal *f)
     double pi;
     int iterations;
 
-
+ 	
     mlx_clear_window(f->mlx_p, f->win_p);
-    y = -1;
-    while (++y < HEIGHT)
-    {
-		x = -1;
-        while (++x < WIDTH)
-        {
-            pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
-            pi = f->min_i + (double)y * (f->max_i - f->min_i) / HEIGHT;
-
-            iterations = ft_fractal_iterations(f, pr, pi);
-        	ft_set_pixel_color(f, x, y, ft_set_color(f, iterations));
-        }
-    }
+	if (f->f_set == BUDDHABROT)
+        ft_buddhabrot(f);
+	else
+	{
+    	y = -1;
+   		while (++y < HEIGHT)
+    	{
+			x = -1;
+        	while (++x < WIDTH)
+        	{
+				pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
+				pi = f->max_i - (double)y * (f->max_i - f->min_i) / HEIGHT;
+            /*	pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
+           	 	pi = f->min_i + (double)y * (f->max_i - f->min_i) / HEIGHT;
+			*/
+            	iterations = ft_fractal_iterations(f, pr, pi);
+        		ft_set_pixel_color(f, x, y, ft_set_color(f, iterations));
+        	}
+    	}
+	}
     mlx_put_image_to_window(f->mlx_p, f->win_p, f->img_p, 0, 0);
 	ft_put_legend(f);
 }
