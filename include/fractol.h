@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/14 16:25:22 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/16 12:28:23 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ enum e_fractal
 {
 	MANDELBROT = 1,
 	JULIA = 2,
-	SIERPINSKI = 3
+	PHOENIX = 3
 };
 
 /* Enum of available color sets */
@@ -55,7 +55,8 @@ enum e_color
 {
 	COLOR_ELECTRICGREEN = 1,
 	COLOR_PSYCHADELIC = 2,
-	COLOR_DEPTHSOFHELL = 3
+	COLOR_DEPTHSOFHELL = 3,
+	COLOR_PHOENIX = 4
 };
 
 /* Basic struct to hold the instance and fractal information */
@@ -102,6 +103,10 @@ int		ft_endgame(t_fractal *f);
 /* Draw fractals functions */
 int		ft_mandelbrot(double cr, double ci);
 int		ft_julia(t_fractal *f, double cr, double ci);
+int		ft_phoenix(double cr, double ci, double pr, double pi);
+
+
+
 
 /* utilities.c */
 double	ft_atof(char *str);
@@ -120,6 +125,8 @@ void	ft_move(t_fractal *f, double distance, int key);
 int		ft_color_electricgreen(int iteration);
 int		ft_color_psychadelic(int iteration);
 int		ft_color_depthsofhell(int iteration);
+int		ft_color_phoenix(int iteration);
+
 
 /* legend.c */
 void	ft_put_legend(t_fractal *f);

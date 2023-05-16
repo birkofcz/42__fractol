@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:30:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/14 16:01:48 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/16 12:27:01 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,21 @@ int ft_color_electricgreen(int iteration)
     int green = (int)(255 * pow(2 * fabs(t - 0.5), 0.5));  
 
     return (red << 16) | (green << 8) | blue ;
+}
+
+int ft_color_phoenix(int iteration)
+{
+    double t = (double)iteration / MAX_ITERATIONS;
+
+    // Adjust t to highlight the structures in the Phoenix fractal
+    t = pow(t, 0.6);
+
+    // Calculate color components
+    int red = (int)(255 * pow(1 - t, 3));
+    int green = (int)(255 * pow(t, 0.8));
+    int blue = (int)(255 * pow(t, 0.5));
+
+    return (red << 16) | (green << 8) | blue;
 }
 
 /* int generate_basic(int iteration)

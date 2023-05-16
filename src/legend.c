@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:21:21 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/14 16:22:21 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/16 12:02:29 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ char	*ft_put_set(t_fractal *f)
 {
 	char *man = "SET: Mandelbrot";
 	char *jul = "SET: Julia";
-	char *sie = "SET: Sierpinski triangle";
+	char *pho = "SET: Phoenix";
 
 	if (f->f_set == MANDELBROT)
 		return (man);
 	else if (f->f_set == JULIA)
 		return (jul);
-	else if (f->f_set == SIERPINSKI)
-		return (sie);
+	else if (f->f_set == PHOENIX)
+		return (pho);
 	else
 		return (NULL);
 }
