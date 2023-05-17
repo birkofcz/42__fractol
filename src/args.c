@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:40:54 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/16 16:46:52 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/17 13:20:02 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 	FT_STRLOW
 	Making the argument lowercase for comparation purposes
  */
-static char *ft_strlow(char *str)
+static char	*ft_strlow(char *str)
 {
-	char *str_low;
-	int	i;
+	char	*str_low;
+	int		i;
 
 	str_low = str;
 	i = 0;
@@ -34,7 +34,7 @@ static char *ft_strlow(char *str)
 
 /* FT_COMPARE - to compare the arguments */
 
-static int	ft_compare_args(char *src, char* str)
+static int	ft_compare_args(char *src, char *str)
 {
 	src = ft_strlow(src);
 	if (ft_strncmp(src, str, ft_strlen(str)) == 0)
@@ -53,9 +53,9 @@ void	ft_read_set(t_fractal *f, char **av)
 		f->f_set = MANDELBROT;
 	else if ((ft_atoi(av[1]) == 2)|| (ft_compare_args(av[1], "julia") == 0))
 		f->f_set = JULIA;
-	else if ((ft_atoi(av[1]) == 3) || (ft_compare_args(av[1], "ship") == 0)) 
+	else if ((ft_atoi(av[1]) == 3) || (ft_compare_args(av[1], "ship") == 0))
 		f->f_set = BURNING_SHIP;
-	else if ((ft_atoi(av[1]) == 4) || (ft_compare_args(av[1], "buddhabrot") == 0)) 
+	else if ((ft_atoi(av[1]) == 4) || (ft_compare_args(av[1], "buddha") == 0))
 		f->f_set = BUDDHABROT;
 	else
 	{
@@ -100,11 +100,7 @@ void	ft_handle_arguments(t_fractal *f, int ac, char **av)
 	//ft_read_set(f, av);
 	if (f->f_set != JULIA && ac > 2)
 		ft_help();
-	else if (f->f_set == JULIA && ac > 4) 
+	else if (f->f_set == JULIA && ac > 4)
 		ft_help();
 	ft_read_julia_values(f, ac, av);
 }
-
-
-
-
