@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:40:54 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/17 13:20:02 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/17 13:43:43 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_read_set(t_fractal *f, char **av)
 {
 	if ((ft_atoi(av[1]) == 1) || (ft_compare_args(av[1], "mandelbrot") == 0))
 		f->f_set = MANDELBROT;
-	else if ((ft_atoi(av[1]) == 2)|| (ft_compare_args(av[1], "julia") == 0))
+	else if ((ft_atoi(av[1]) == 2) || (ft_compare_args(av[1], "julia") == 0))
 		f->f_set = JULIA;
 	else if ((ft_atoi(av[1]) == 3) || (ft_compare_args(av[1], "ship") == 0))
 		f->f_set = BURNING_SHIP;
