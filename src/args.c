@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:40:54 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 17:06:41 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 17:09:05 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ static char	*ft_strlow(char *str)
 	return (str_low);
 }
 
-/* FT_COMPARE - to compare the arguments */
+/* 
+FT_COMPARE - to compare the arguments 
+*/
 static int	ft_compare_args(char *src, char *str)
 {
 	src = ft_strlow(src);
