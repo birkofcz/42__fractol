@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:02:56 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/16 16:49:46 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 11:02:17 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,25 @@ int	ft_key_event(int key, t_fractal *f)
 	return (0);
 } 
 
-int	ft_mouse_event(int mouse, t_fractal *f)
+int	ft_mouse_event(int mouse, int x, int y, t_fractal *f)
 {
 	if (mouse == MOUSE_ZOOMIN)
 	{
 		ft_printf("mouse detected\n");
-		ft_zoom(f, 0.5);
+		ft_zoom_mouse(f, 0.5, x, y);
 		ft_printf("edited zoom values\n");
+		//x -= WIDTH / 2;
+		//y -= HEIGHT / 2;
 	}
+	else if (mouse == MOUSE_ZOOMOUT)
+		ft_zoom(f, 2);
+	else if (mouse == MOUSE_LCLICK)
+	{
+		if (f->f_set == JULIA)
+			ft_julia_shift(x, y, f);
+	}
+	else 
+		return (1);
 	ft_render(f);
 	return (0);
 }
@@ -69,6 +80,21 @@ void	ft_zoom(t_fractal *f, double zoom)
 	f->min_i = f->min_i + (center_i - zoom * center_i) / 2;
 	f->max_i = f->min_i + zoom * center_i;
 }
+
+void	ft_zoom_mouse(t_fractal *f, double zoom, int x, int y)
+{
+	double mouseX_scaled = (double)x / (double)WIDTH * (f->max_r - f->min_r) + f->min_r;
+	double mouseY_scaled = (double)(HEIGHT - y) / (double)HEIGHT * (f->max_i - f->min_i) + f->min_i;
+
+	double new_width = (f->max_r - f->min_r) * zoom;
+	double new_height = (f->max_i - f->min_i) * zoom;
+
+	f->min_r = mouseX_scaled - new_width / 2;
+	f->max_r = mouseX_scaled + new_width / 2;
+	f->min_i = mouseY_scaled - new_height / 2;
+	f->max_i = mouseY_scaled + new_height / 2;
+}
+
 
 void	ft_move(t_fractal *f, double distance, int key)
 {

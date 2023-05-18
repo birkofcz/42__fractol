@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/16 16:46:16 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 11:19:52 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 # define WIDTH 1000
 # define HEIGHT 1000
 # define MAX_ITERATIONS 100
+# define BOLD "\033[1m"
+# define GREEN "\033[32m"
+# define RED "\033[31m"
+# define RESET "\033[0m"
 
 /* Keymap for event handling */
 enum e_keymap
@@ -105,6 +109,7 @@ int		ft_endgame(t_fractal *f);
 /* Draw fractals functions */
 int		ft_mandelbrot(double cr, double ci);
 int		ft_julia(t_fractal *f, double cr, double ci);
+int		ft_julia_shift(int x, int y, t_fractal *f);
 int		ft_phoenix(double cr, double ci, double pr, double pi);
 void	ft_buddhabrot(t_fractal *f);
 int		ft_burning_ship(double cr, double ci);
@@ -119,8 +124,9 @@ void	ft_render(t_fractal *f);
 
 /* events.c */
 int		ft_key_event(int key, t_fractal *f);
-int		ft_mouse_event(int mouse, t_fractal *f);
+int		ft_mouse_event(int mouse, int x, int y, t_fractal *f);
 void	ft_zoom(t_fractal *f, double zoom);
+void	ft_zoom_mouse(t_fractal *f, double zoom, int x, int y);
 void	ft_move(t_fractal *f, double distance, int key);
 
 /* colors.c */
@@ -129,8 +135,6 @@ int		ft_color_psychadelic(int iteration);
 int		ft_color_depthsofhell(int iteration);
 int		ft_color_phoenix(int iteration);
 int		ft_color_blackwhite(int iteration);
-
-
 
 
 /* legend.c */

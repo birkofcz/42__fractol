@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:49:40 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/14 11:50:22 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 11:33:34 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ int	main(int ac, char **av)
 	t_fractal f;
 
 	//(void)av;
-	if (ac < 2)
+	if (ac < 2 || ac == 3)
+	{
 		ft_help();
+		return (0);
+	}
 	ft_init_fractal(&f); //clean intialization
 	print_fractal_state(&f);
 	ft_read_set(&f, av);

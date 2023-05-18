@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:33:43 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/11 16:18:40 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 11:08:39 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ft_clean_exit(t_fractal *f)
 {
 	if (!f)
 		exit(0);
-	if (f->img_p)
-		mlx_destroy_image(f->mlx_p, f->win_p);
+	if (f->img_p && f->mlx_p)
+		mlx_destroy_image(f->mlx_p, f->img_p);
 	if (f->win_p && f->mlx_p)
 		mlx_destroy_window(f->mlx_p, f->win_p);
 	if (f->mlx_p)
