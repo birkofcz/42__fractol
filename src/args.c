@@ -6,15 +6,14 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:40:54 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 11:47:56 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 17:06:41 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
 /* 
-	FT_STRLOW
-	Making the argument lowercase for comparation purposes
+FT_STRLOW - making the argument lowercase for comparation purposes
  */
 static char	*ft_strlow(char *str)
 {
@@ -33,7 +32,6 @@ static char	*ft_strlow(char *str)
 }
 
 /* FT_COMPARE - to compare the arguments */
-
 static int	ft_compare_args(char *src, char *str)
 {
 	src = ft_strlow(src);
@@ -43,9 +41,8 @@ static int	ft_compare_args(char *src, char *str)
 }
 
 /* 
-	FT_READ_SET
-	reads the fractal set from av[1]. Help print
-	and exit if bad input.
+FT_READ_SET - reads the fractal set from av[1]. Help print
+and exit if bad input.
  */
 void	ft_read_set(t_fractal *f, char **av)
 {
@@ -65,9 +62,8 @@ void	ft_read_set(t_fractal *f, char **av)
 }
 
 /* 
-	FT_READ_JULIA_VALUES	
-	Reads the optional arguments for Julia set.
-	If none, sets default value.
+FT_READ_JULIA_VALUES - reads the optional arguments for Julia set.
+If none, sets default value.
  */
 void	ft_read_julia_values(t_fractal *f, int ac, char **av)
 {
@@ -92,8 +88,7 @@ void	ft_read_julia_values(t_fractal *f, int ac, char **av)
 }
 
 /* 
-	FT_HANDLE_ARGUMENTS
-	Crossroad of argument handling.
+FT_HANDLE_ARGUMENTS - crossroad of argument handling.
  */
 void	ft_handle_arguments(t_fractal *f, int ac, char **av)
 {
