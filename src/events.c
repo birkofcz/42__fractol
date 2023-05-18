@@ -5,49 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/11 16:02:56 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 11:50:39 by sbenes           ###   ########.fr       */
+/*   Created: 2023/05/18 15:53:55 by sbenes            #+#    #+#             */
+/*   Updated: 2023/05/18 15:54:17 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-/* 
-FT_KEY_EVENT - controls the actions on keypress.
-*/
-
-int	ft_key_event(int key, t_fractal *f)
+void	ft_cycle(int key, t_fractal *f)
 {
-	if (key == KEY_ESC)
-		ft_clean_exit(f);
-	else if (key == KEY_PLUS)
-		ft_zoom(f, 0.5);
-	else if (key == KEY_MINUS)
-		ft_zoom(f, 2);
-	else if (key == KEY_UP)
-		ft_move(f, 0.2, KEY_UP);
-	else if (key == KEY_DOWN)
-		ft_move(f, 0.2, KEY_DOWN);
-	else if (key == KEY_LEFT)
-		ft_move(f, 0.2, KEY_LEFT);
-	else if (key == KEY_RIGHT)
-		ft_move(f, 0.2, KEY_RIGHT);
-	else if (key == KEY_C)
+	if (key == KEY_C)
 	{
 		if (f->color_scheme <= 4)
 			f->color_scheme += 1;
 		else
 			f->color_scheme = 1;
 	}
-	else
-		return (1);
-	ft_render(f);
-	return (0);
+	else if (key == KEY_S)
+	{
+		if (f->f_set <= 3)
+			f->f_set++;
+		else
+			f->f_set = 1;
+	}
 }
-
-/* 
-FT_KEY_EVENT - controls the actions on mouse events.
-*/
 
 int	ft_mouse_event(int mouse, int x, int y, t_fractal *f)
 {
@@ -60,7 +41,7 @@ int	ft_mouse_event(int mouse, int x, int y, t_fractal *f)
 		if (f->f_set == JULIA)
 			ft_julia_shift(x, y, f);
 	}
-	else 
+	else
 		return (1);
 	ft_render(f);
 	return (0);

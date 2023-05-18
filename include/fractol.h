@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 13:20:11 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 15:57:21 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ enum e_keymap
 	KEY_PLUS = 61,
 	KEY_MINUS = 45,
 	KEY_C = 99,
+	KEY_S = 115,
 	MOUSE_LCLICK = 1,
-	MOUSE_ZOOMIN = 5,
-	MOUSE_ZOOMOUT = 4
+	MOUSE_ZOOMIN = 4,
+	MOUSE_ZOOMOUT = 5
 };
 
 /* Enum of available fractal sets */
@@ -62,10 +63,11 @@ enum e_fractal
 enum e_color
 {
 	COLOR_ELECTRICGREEN = 1,
-	COLOR_PSYCHADELIC = 2,
-	COLOR_DEPTHSOFHELL = 3,
-	COLOR_PHOENIX = 4,
+	COLOR_ONATRIP = 2,
+	COLOR_PSYCHADELIC = 3,
+	COLOR_BLUEGHOST = 4,
 	COLOR_BW = 5
+
 };
 
 /* Basic struct to hold the instance and fractal information */
@@ -96,9 +98,10 @@ void	ft_handle_arguments(t_fractal *f, int ac, char **av);
 
 void	ft_init_mlx(t_fractal *f);
 void	ft_init_image(t_fractal *f);
+void	ft_layout(t_fractal *f);
 
-/* void	ft_init_mlx_win(t_fractal *f);
-void	ft_init_img(t_fractal *f); */
+
+
 
 /* exit.c - clean exit for the program */
 void	ft_clean_exit(t_fractal *f);
@@ -125,19 +128,19 @@ int		ft_mouse_event(int mouse, int x, int y, t_fractal *f);
 void	ft_zoom(t_fractal *f, double zoom);
 void	ft_zoom_mouse(t_fractal *f, double zoom, int x, int y);
 void	ft_move(t_fractal *f, double distance, int key);
+void	ft_cycle(int key, t_fractal *f);
 
 /* colors.c */
 int		ft_color_electricgreen(int iteration);
+int		ft_color_onatrip(int iteration);
 int		ft_color_psychadelic(int iteration);
-int		ft_color_depthsofhell(int iteration);
-int		ft_color_phoenix(int iteration);
+int		ft_color_blueghost(int iteration);
 int		ft_color_blackwhite(int iteration);
 
 /* legend.c */
 void	ft_put_legend(t_fractal *f);
-char	*ft_put_set(t_fractal *f);
 
-int		ft_set_color(t_fractal *f, int interations);
+int		ft_set_color(t_fractal *f, int iterations);
 void	ft_set_pixel_color(t_fractal *f, int x, int y, int color);
 
-# endif
+#endif

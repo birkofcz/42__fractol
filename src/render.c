@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/16 16:49:10 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 15:58:33 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_fractal_iterations(t_fractal *f, double pr, double pi)
 {
 	int	iterations;
-	
+
 	iterations = 0;
 	if (f->f_set == MANDELBROT)
 		iterations = ft_mandelbrot(pr, pi);
@@ -28,27 +28,26 @@ int	ft_fractal_iterations(t_fractal *f, double pr, double pi)
 
 void	ft_set_pixel_color(t_fractal *f, int x, int y, int color)
 {
-		f->img_data[x * 4 + y * WIDTH * 4] = color;
-		f->img_data[x * 4 + y * WIDTH * 4 + 1] = color >> 8;
-		f->img_data[x * 4 + y * WIDTH * 4 + 2] = color >> 16;
-		f->img_data[x * 4 + y * WIDTH * 4 + 3] = color >> 24;
+	f->img_data[x * 4 + y * WIDTH * 4] = color;
+	f->img_data[x * 4 + y * WIDTH * 4 + 1] = color >> 8;
+	f->img_data[x * 4 + y * WIDTH * 4 + 2] = color >> 16;
+	f->img_data[x * 4 + y * WIDTH * 4 + 3] = color >> 24;
 }
 
-
-int	ft_set_color(t_fractal *f, int interations)
+int	ft_set_color(t_fractal *f, int iterations)
 {
-	int color_scheme;
+	int	color_scheme;
 
 	if (f->color_scheme == COLOR_ELECTRICGREEN)
-		color_scheme = ft_color_electricgreen(interations);
+		color_scheme = ft_color_electricgreen(iterations);
+	else if (f->color_scheme == COLOR_ONATRIP)
+		color_scheme = ft_color_onatrip(iterations);
 	else if (f->color_scheme == COLOR_PSYCHADELIC)
-		color_scheme = ft_color_psychadelic(interations);
-	else if (f->color_scheme == COLOR_DEPTHSOFHELL)
-		color_scheme = ft_color_depthsofhell(interations);
-	else if (f->color_scheme == COLOR_PHOENIX)
-		color_scheme = ft_color_phoenix(interations);
+		color_scheme = ft_color_psychadelic(iterations);
+	else if (f->color_scheme == COLOR_BLUEGHOST)
+		color_scheme = ft_color_blueghost(iterations);
 	else if (f->color_scheme == COLOR_BW)
-		color_scheme = ft_color_blackwhite(interations);
+		color_scheme = ft_color_blackwhite(iterations);
 	else
 		return (1);
 	return (color_scheme);
@@ -63,7 +62,6 @@ void ft_render(t_fractal *f)
     double pi;
     int iterations;
 
- 	
     mlx_clear_window(f->mlx_p, f->win_p);
 	if (f->f_set == BUDDHABROT)
         ft_buddhabrot(f);
@@ -77,9 +75,6 @@ void ft_render(t_fractal *f)
         	{
 				pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
 				pi = f->max_i - (double)y * (f->max_i - f->min_i) / HEIGHT;
-            /*	pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
-           	 	pi = f->min_i + (double)y * (f->max_i - f->min_i) / HEIGHT;
-			*/
             	iterations = ft_fractal_iterations(f, pr, pi);
         		ft_set_pixel_color(f, x, y, ft_set_color(f, iterations));
         	}
