@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:24:11 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/14 15:55:02 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 11:44:23 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ void	ft_init_fractal(t_fractal *f)
 	f->max_i = 0;
 	f->start_r = 0;
 	f->start_i = 0;
-	f->sx = 0;
-	f->rx = 0;
-	f->fx = 0;
 	f->color_scheme = 1;
 }
 
@@ -72,8 +69,6 @@ void	ft_clean_img(t_fractal *f)
 {
 	if (f->mlx_p && f->img_p)
 		mlx_destroy_image(f->mlx_p, f->img_p);
-	/* if (f->palette)
-		free(f->palette); */
 	if (f->img_data)
 		f->img_data = NULL;
 	ft_init_image(f);
@@ -87,8 +82,5 @@ void	ft_init_mlx(t_fractal *f)
 	f->win_p = mlx_new_window(f->mlx_p, WIDTH, HEIGHT, "Fract'ol");
 	if (!f->win_p)
 		ft_clean_exit(f);
-	f->sx = 2.0;
-	f->rx = 0.5;
-	f->fx = 1.0;
 	ft_layout(f);
 }

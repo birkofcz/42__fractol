@@ -6,7 +6,7 @@
 #    By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 15:29:04 by sbenes            #+#    #+#              #
-#    Updated: 2023/05/16 16:45:15 by sbenes           ###   ########.fr        #
+#    Updated: 2023/05/18 11:52:52 by sbenes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,8 +42,8 @@ INC =	-I ./include/\
 
 #sources
 SRC_PATH =	src/
-SRC = 	fractol.c mandelbrot.c julia.c init.c args.c exit.c help.c utilities.c render.c\
-		events.c colors.c legend.c burning_ship.c buddhabrot.c
+SRC = 	fractol.c init.c args.c exit.c help.c utilities.c render.c\
+		events.c colors.c legend.c SET_mandelbrot.c SET_julia.c SET_burning_ship.c SET_buddhabrot.c
 SRCS =	$(addprefix $(SRC_PATH), $(SRC))
 
 #objects

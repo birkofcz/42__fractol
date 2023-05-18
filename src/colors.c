@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:30:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/16 16:03:31 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 11:46:55 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int ft_color_depthsofhell(int iteration)
     // Modulus operator creates repeating patterns with sharp transitions
     int red = (int)(255 * (iteration % 6) / 3.0);   // Red varies between 0 and 255 every 8 iterations
     int green = 0;/* (int)(255 * (iteration % 16) / 15.0); */ // Green varies between 0 and 255 every 16 iterations
-    int blue = 0;/* (int)(255 * (iteration % 4) / 3.0) */;  // Blue varies between 0 and 255 every 4 iterations
+    int blue = 0; /* (int)(255 * (iteration % 4) / 3.0) */;  // Blue varies between 0 and 255 every 4 iterations
 
     // Combine red, green, and blue into a single integergit
     return (red << 16) | (green << 8) | blue;

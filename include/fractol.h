@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 11:19:52 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 11:44:40 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@
 /* Window and image dimensions */
 # define WIDTH 1000
 # define HEIGHT 1000
+
+/* Iterations */
 # define MAX_ITERATIONS 100
+
+/* Color escape sequences */
 # define BOLD "\033[1m"
 # define GREEN "\033[32m"
 # define RED "\033[31m"
@@ -41,7 +45,6 @@ enum e_keymap
 	KEY_MINUS = 45,
 	KEY_C = 99,
 	MOUSE_LCLICK = 1,
-	MOUSE_RCLICK = 3,
 	MOUSE_ZOOMIN = 5,
 	MOUSE_ZOOMOUT = 4
 };
@@ -80,9 +83,6 @@ typedef struct s_fractal
 	double	start_r;	// real starting point
 	double	start_i;	// imaginary starting point
 	int		color_scheme;
-	double	sx;
-	double	rx;
-	double	fx;
 }	t_fractal;
 
 

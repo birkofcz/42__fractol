@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:40:54 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/17 13:43:43 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 11:47:56 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_read_julia_values(t_fractal *f, int ac, char **av)
 {
 	if (f->f_set != JULIA || ac == 2)
 	{
-		f->start_r = -0.766667; //some default values? Take a look on it!
+		f->start_r = -0.766667;
 		f->start_i = -0.090000;
 		return ;
 	}
@@ -97,7 +97,6 @@ void	ft_read_julia_values(t_fractal *f, int ac, char **av)
  */
 void	ft_handle_arguments(t_fractal *f, int ac, char **av)
 {
-	//ft_read_set(f, av);
 	if (f->f_set != JULIA && ac > 2)
 		ft_help();
 	else if (f->f_set == JULIA && ac > 4)

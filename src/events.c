@@ -6,17 +6,18 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:02:56 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 11:02:17 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 11:50:39 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-/* Mouse a keys events */
+/* 
+FT_KEY_EVENT - controls the actions on keypress.
+*/
 
 int	ft_key_event(int key, t_fractal *f)
 {
-	ft_printf("key pressed: %d\n", key);
 	if (key == KEY_ESC)
 		ft_clean_exit(f);
 	else if (key == KEY_PLUS)
@@ -42,18 +43,16 @@ int	ft_key_event(int key, t_fractal *f)
 		return (1);
 	ft_render(f);
 	return (0);
-} 
+}
+
+/* 
+FT_KEY_EVENT - controls the actions on mouse events.
+*/
 
 int	ft_mouse_event(int mouse, int x, int y, t_fractal *f)
 {
 	if (mouse == MOUSE_ZOOMIN)
-	{
-		ft_printf("mouse detected\n");
 		ft_zoom_mouse(f, 0.5, x, y);
-		ft_printf("edited zoom values\n");
-		//x -= WIDTH / 2;
-		//y -= HEIGHT / 2;
-	}
 	else if (mouse == MOUSE_ZOOMOUT)
 		ft_zoom(f, 2);
 	else if (mouse == MOUSE_LCLICK)
@@ -67,11 +66,10 @@ int	ft_mouse_event(int mouse, int x, int y, t_fractal *f)
 	return (0);
 }
 
-
 void	ft_zoom(t_fractal *f, double zoom)
 {
-	double center_r;
-	double center_i;
+	double	center_r;
+	double	center_i;
 
 	center_r = f->min_r - f->max_r;
 	center_i = f->max_i - f->min_i;
@@ -94,7 +92,6 @@ void	ft_zoom_mouse(t_fractal *f, double zoom, int x, int y)
 	f->min_i = mouseY_scaled - new_height / 2;
 	f->max_i = mouseY_scaled + new_height / 2;
 }
-
 
 void	ft_move(t_fractal *f, double distance, int key)
 {

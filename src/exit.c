@@ -6,15 +6,14 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:33:43 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 11:08:39 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 11:38:22 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
 /* 
-	FT_CLEAN_EXIT
-	exits the program clean way - no memory leaks
+FT_CLEAN_EXIT - exits the program clean way - no memory leaks
  */
 
 void	ft_clean_exit(t_fractal *f)
@@ -33,6 +32,11 @@ void	ft_clean_exit(t_fractal *f)
 	}
 	exit(0);
 }
+
+/* 
+FT_ENDGAME - function hooked to the mlx, triggered when 
+the exit button is clicked.
+ */
 
 int	ft_endgame(t_fractal *f)
 {

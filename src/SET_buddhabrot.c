@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buddhabrot.c                                       :+:      :+:    :+:   */
+/*   SET_buddhabrot.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:55:15 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/16 16:51:29 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 11:52:00 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
 #define BUDDHABROT_MAX_ITERATIONS 250 // Adjust this to increase/decrease detail
-#define BUDDHABROT_SAMPLING 400000       // Adjust this to increase/decrease density
+#define BUDDHABROT_SAMPLING 400000   // Adjust this to increase/decrease density
 
 void ft_buddhabrot(t_fractal *f)
 {
