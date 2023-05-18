@@ -6,12 +6,16 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 15:53:55 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 15:54:17 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 16:59:29 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
+/* 
+FT_CYCLE - cycles through the color schemes and fractal sets
+on keypress
+ */
 void	ft_cycle(int key, t_fractal *f)
 {
 	if (key == KEY_C)
@@ -30,6 +34,10 @@ void	ft_cycle(int key, t_fractal *f)
 	}
 }
 
+/* 
+FT_MOUSE_EVENT - event handler for mouse events. Handles zoom
+and Julia set shift.
+ */
 int	ft_mouse_event(int mouse, int x, int y, t_fractal *f)
 {
 	if (mouse == MOUSE_ZOOMIN)
@@ -47,6 +55,9 @@ int	ft_mouse_event(int mouse, int x, int y, t_fractal *f)
 	return (0);
 }
 
+/* 
+FT_ZOOM - zooming function.
+ */
 void	ft_zoom(t_fractal *f, double zoom)
 {
 	double	center_r;
@@ -60,20 +71,33 @@ void	ft_zoom(t_fractal *f, double zoom)
 	f->max_i = f->min_i + zoom * center_i;
 }
 
+/* 
+FT_ZOOM_MOUSE - zoom with the mouse wheel, uses mouse poiter coordinates
+to zoom complex plane on that point.
+ */
 void	ft_zoom_mouse(t_fractal *f, double zoom, int x, int y)
 {
-	double mouseX_scaled = (double)x / (double)WIDTH * (f->max_r - f->min_r) + f->min_r;
-	double mouseY_scaled = (double)(HEIGHT - y) / (double)HEIGHT * (f->max_i - f->min_i) + f->min_i;
+	double	m_x;
+	double	m_y;
+	double	new_width;
+	double	new_height;
+	double	shortcut;
 
-	double new_width = (f->max_r - f->min_r) * zoom;
-	double new_height = (f->max_i - f->min_i) * zoom;
-
-	f->min_r = mouseX_scaled - new_width / 2;
-	f->max_r = mouseX_scaled + new_width / 2;
-	f->min_i = mouseY_scaled - new_height / 2;
-	f->max_i = mouseY_scaled + new_height / 2;
+	shortcut = (double)(HEIGHT - y) / (double)HEIGHT;
+	m_x = (double)x / (double)WIDTH * (f->max_r - f->min_r) + f->min_r;
+	m_y = shortcut * (f->max_i - f->min_i) + f->min_i;
+	new_width = (f->max_r - f->min_r) * zoom;
+	new_height = (f->max_i - f->min_i) * zoom;
+	f->min_r = m_x - new_width / 2;
+	f->max_r = m_x + new_width / 2;
+	f->min_i = m_y - new_height / 2;
+	f->max_i = m_y + new_height / 2;
 }
 
+/* 
+FT_MOVE - controls the movement - shofting the center of complex 
+plane for rendering
+ */
 void	ft_move(t_fractal *f, double distance, int key)
 {
 	double	center_r;
