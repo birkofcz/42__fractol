@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 11:44:40 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 13:20:11 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,8 @@ typedef struct s_fractal
 	int		color_scheme;
 }	t_fractal;
 
-
 /* help.c - prints the instruction */
-void	ft_help();
+void	ft_help(void);
 
 /* init.c - initialization of mlx, win, img and fractal info */
 void	ft_init_fractal(t_fractal *f);
@@ -105,7 +104,6 @@ void	ft_init_img(t_fractal *f); */
 void	ft_clean_exit(t_fractal *f);
 int		ft_endgame(t_fractal *f);
 
-
 /* Draw fractals functions */
 int		ft_mandelbrot(double cr, double ci);
 int		ft_julia(t_fractal *f, double cr, double ci);
@@ -113,7 +111,6 @@ int		ft_julia_shift(int x, int y, t_fractal *f);
 int		ft_phoenix(double cr, double ci, double pr, double pi);
 void	ft_buddhabrot(t_fractal *f);
 int		ft_burning_ship(double cr, double ci);
-
 
 /* utilities.c */
 double	ft_atof(char *str);
@@ -136,13 +133,11 @@ int		ft_color_depthsofhell(int iteration);
 int		ft_color_phoenix(int iteration);
 int		ft_color_blackwhite(int iteration);
 
-
 /* legend.c */
 void	ft_put_legend(t_fractal *f);
 char	*ft_put_set(t_fractal *f);
 
 int		ft_set_color(t_fractal *f, int interations);
 void	ft_set_pixel_color(t_fractal *f, int x, int y, int color);
-
 
 # endif

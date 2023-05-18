@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:55:15 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 11:52:00 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/18 13:22:02 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void ft_buddhabrot(t_fractal *f)
     buddhabrot_map = malloc(HEIGHT * sizeof(long long *));
     for (y = 0; y < HEIGHT; y++)
     {
-        buddhabrot_map[y] = calloc(WIDTH, sizeof(long long));
+        buddhabrot_map[y] = malloc(WIDTH * sizeof(long long));
     }
 
     for (i = 0; i < BUDDHABROT_SAMPLING; i++)
