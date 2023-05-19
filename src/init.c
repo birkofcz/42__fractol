@@ -6,15 +6,14 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:24:11 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 15:04:07 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 17:08:47 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
 /*	
-	FT_INIT_FRACTAL	
-	clean initialization for t_fractal struct.
+FT_INIT_FRACTAL - clean initialization for t_fractal struct.
 */
 void	ft_init_fractal(t_fractal *f)
 {
@@ -22,9 +21,9 @@ void	ft_init_fractal(t_fractal *f)
 	f->win_p = NULL;
 	f->img_p = NULL;
 	f->img_data = NULL;
-	f->f_set = 0;		//chosen fractal set identificator
+	f->f_set = 0;
 	f->min_r = 0;
-	f->max_r= 0;
+	f->max_r = 0;
 	f->min_i = 0;
 	f->max_i = 0;
 	f->start_r = 0;

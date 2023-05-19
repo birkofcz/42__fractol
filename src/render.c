@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 17:03:33 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 17:09:48 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,19 @@ void	ft_render(t_fractal *f)
 	int		iterations;
 
 	mlx_clear_window(f->mlx_p, f->win_p);
-	i = -1;
-	while (++i < HEIGHT)
+	i = 0;
+	while (i < HEIGHT)
 	{
-		j = -1;
-		while (++j < WIDTH)
+		j = 0;
+		while (j < WIDTH)
 		{
 			pr = f->min_r + (double)i * (f->max_r - f->min_r) / WIDTH;
 			pi = f->max_i - (double)j * (f->max_i - f->min_i) / HEIGHT;
 			iterations = ft_fractal_iterations(f, pr, pi);
 			ft_set_pixel_color(f, i, j, ft_set_color(f, iterations));
+			j++;
 		}
+		i++;
 	}
 	mlx_put_image_to_window(f->mlx_p, f->win_p, f->img_p, 0, 0);
 	ft_put_legend(f);

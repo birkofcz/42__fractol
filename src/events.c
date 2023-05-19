@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 15:53:55 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 16:59:51 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 17:13:05 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	ft_zoom(t_fractal *f, double zoom)
 	double	center_r;
 	double	center_i;
 
-	ft_printf("got to zoom function\n");
 	center_r = f->min_r - f->max_r;
 	center_i = f->max_i - f->min_i;
 	f->max_r = f->max_r + (center_r - zoom * center_r) / 2;

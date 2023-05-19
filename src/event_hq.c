@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:02:56 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 16:20:54 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 17:07:17 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ int	ft_key_event(int key, t_fractal *f)
 	return (0);
 }
 
+/* 
+FT_MOUSE_EVENT - controls the actions on mouse This is crossroad
+for events defined in events.c
+*/
 int	ft_mouse_event(int mouse, int x, int y, t_fractal *f)
 {
 	if (mouse == MOUSE_ZOOMIN)

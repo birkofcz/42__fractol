@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:48:26 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/11 16:32:05 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 17:15:20 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,18 @@ double	ft_atof(char *str)
 	return (nb * is_neg);
 }
 
-void print_fractal_state(const t_fractal *f)
+/* void	print_fractal_state(const t_fractal *f)
 {
-    printf("f->mlx_p: %s\n", (f->mlx_p == NULL) ? "null" : "not null");
-    printf("f->win_p: %s\n", (f->win_p == NULL) ? "null" : "not null");
-    printf("f->img_p: %s\n", (f->img_p == NULL) ? "null" : "not null");
-    printf("f->img_data: %s\n", (f->img_data == NULL) ? "null" : "not null");
-    printf("f->f_set: %d\n", f->f_set);
-    printf("f->min_r: %f\n", f->min_r);
-    printf("f->max_r: %f\n", f->max_r);
-    printf("f->min_i: %f\n", f->min_i);
-    printf("f->max_i: %f\n", f->max_i);
-    printf("f->start_r: %f\n", f->start_r);
-    printf("f->start_i: %f\n", f->start_i);
-    printf("f->color_scheme: %d\n", f->color_scheme);
-    //printf("f->arg: %s\n", (f->arg == NULL) ? "null" : f->arg);
-}
+	ft_printf("f->mlx_p: %s\n", (f->mlx_p == NULL) ? "null" : "not null");
+	ft_printf("f->win_p: %s\n", (f->win_p == NULL) ? "null" : "not null");
+	ft_printf("f->img_p: %s\n", (f->img_p == NULL) ? "null" : "not null");
+	ft_printf("f->img_data: %s\n", (f->img_data == NULL) ? "null" : "not null");
+	ft_printf("f->f_set: %d\n", f->f_set);
+	ft_printf("f->min_r: %f\n", f->min_r);
+	ft_printf("f->max_r: %f\n", f->max_r);
+	ft_printf("f->min_i: %f\n", f->min_i);
+	ft_printf("f->max_i: %f\n", f->max_i);
+	ft_printf("f->start_r: %f\n", f->start_r);
+	ft_printf("f->start_i: %f\n", f->start_i);
+	ft_printf("f->color_scheme: %d\n", f->color_scheme);
+} */
