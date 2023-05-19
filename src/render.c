@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 14:46:57 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 17:03:33 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,28 +56,23 @@ int	ft_set_color(t_fractal *f, int iterations)
 
 void	ft_render(t_fractal *f)
 {
-	int		x;
-	int		y;
+	int		i;
+	int		j;
 	double	pr;
 	double	pi;
 	int		iterations;
 
 	mlx_clear_window(f->mlx_p, f->win_p);
-	if (f->f_set == BUDDHABROT)
-		ft_buddhabrot(f);
-	else
+	i = -1;
+	while (++i < HEIGHT)
 	{
-		y = -1;
-		while (++y < HEIGHT)
+		j = -1;
+		while (++j < WIDTH)
 		{
-			x = -1;
-			while (++x < WIDTH)
-			{
-				pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
-				pi = f->max_i - (double)y * (f->max_i - f->min_i) / HEIGHT;
-				iterations = ft_fractal_iterations(f, pr, pi);
-				ft_set_pixel_color(f, x, y, ft_set_color(f, iterations));
-			}
+			pr = f->min_r + (double)i * (f->max_r - f->min_r) / WIDTH;
+			pi = f->max_i - (double)j * (f->max_i - f->min_i) / HEIGHT;
+			iterations = ft_fractal_iterations(f, pr, pi);
+			ft_set_pixel_color(f, i, j, ft_set_color(f, iterations));
 		}
 	}
 	mlx_put_image_to_window(f->mlx_p, f->win_p, f->img_p, 0, 0);

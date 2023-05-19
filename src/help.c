@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:55:49 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 13:19:22 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 17:00:29 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 void	ft_help(void)
 {
-	//ft_printf("\n%s[ FRACT'OL HELP ]%s\n\n", BOLD, RESET);
 	ft_printf("%s%s\nrun ./fractol <fractal_set>", BOLD, GREEN);
 	ft_printf("%s%s<opt:julia_param1>", BOLD, GREEN);
 	ft_printf("%s%s<opt:julia_param2>%s\n\n", BOLD, GREEN, RESET);

@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:21:21 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 15:41:05 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 16:59:25 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,16 @@ static char	*ft_put_set(t_fractal *f)
 	char	*man;
 	char	*jul;
 	char	*bur;
-	char	*bud;
 
 	man = "SET: Mandelbrot";
 	jul = "SET: Julia";
 	bur = "SET: Burning ship";
-	bud = "SET: Buddhabrot";
 	if (f->f_set == MANDELBROT)
 		return (man);
 	else if (f->f_set == JULIA)
 		return (jul);
 	else if (f->f_set == BURNING_SHIP)
 		return (bur);
-	else if (f->f_set == BUDDHABROT)
-		return (bud);
 	else
 		return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 15:17:15 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 16:57:01 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ enum e_fractal
 	MANDELBROT = 1,
 	JULIA = 2,
 	BURNING_SHIP = 3,
-	BUDDHABROT = 4,
-	PER_MANDELBROT = 5
+	//BUDDHABROT = 4,
 };
 
 /* Enum of available color sets */

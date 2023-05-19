@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:55:15 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 16:25:10 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 16:50:58 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,3 +74,5 @@ void	ft_buddhabrot(t_fractal *f)
     }
     free(buddhabrot_map);
 }
+
+
