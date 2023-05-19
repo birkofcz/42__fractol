@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:02:56 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 17:07:17 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 17:19:38 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,3 @@ int	ft_mouse_event(int mouse, int x, int y, t_fractal *f)
 	ft_render(f);
 	return (0);
 }
-
-

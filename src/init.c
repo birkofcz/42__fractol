@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:24:11 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 17:08:47 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 17:18:59 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	ft_init_fractal(t_fractal *f)
 
 void	ft_layout(t_fractal *f)
 {
-
 	if (f->f_set == JULIA)
 	{
 		f->min_r = -2.0;

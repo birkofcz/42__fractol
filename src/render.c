@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 17:09:48 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 17:20:48 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	ft_set_color(t_fractal *f, int iterations)
 	return (color_scheme);
 }
 
-
 void	ft_render(t_fractal *f)
 {
 	int		i;
@@ -80,4 +79,3 @@ void	ft_render(t_fractal *f)
 	mlx_put_image_to_window(f->mlx_p, f->win_p, f->img_p, 0, 0);
 	ft_put_legend(f);
 }
-
