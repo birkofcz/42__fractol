@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:21:21 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 15:52:26 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 15:41:05 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,7 @@ void	ft_put_legend(t_fractal *f)
 	mlx_string_put(f->mlx_p, f->win_p, 20, 120, 0xFFFFFF, "[COLOR SCHEME]: C");
 	mlx_string_put(f->mlx_p, f->win_p, 20, 140, 0xFFFFFF, "[FRACTAL SET]: S");
 	mlx_string_put(f->mlx_p, f->win_p, 20, 160, 0xFFFFFF, "[EXIT]: ESC");
+	if (f->f_set == JULIA)
+		mlx_string_put(f->mlx_p, f->win_p, 20, 200, 0xFFFFFF, "[J_SETS]: 1-7");
+
 }

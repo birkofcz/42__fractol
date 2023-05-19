@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:55:15 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 13:22:02 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 16:25:10 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #define BUDDHABROT_MAX_ITERATIONS 250 // Adjust this to increase/decrease detail
 #define BUDDHABROT_SAMPLING 400000   // Adjust this to increase/decrease density
 
-void ft_buddhabrot(t_fractal *f)
+
+void	ft_buddhabrot(t_fractal *f)
 {
     int x, y, i;
     double pr, pi;

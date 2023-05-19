@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 15:53:55 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 16:59:29 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 15:05:24 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,15 @@ void	ft_cycle(int key, t_fractal *f)
 	else if (key == KEY_S)
 	{
 		if (f->f_set <= 3)
+		{
 			f->f_set++;
+			ft_layout(f);
+		}
 		else
+		{
 			f->f_set = 1;
+			ft_layout(f);
+		}
 	}
 }
 
@@ -38,7 +44,7 @@ void	ft_cycle(int key, t_fractal *f)
 FT_MOUSE_EVENT - event handler for mouse events. Handles zoom
 and Julia set shift.
  */
-int	ft_mouse_event(int mouse, int x, int y, t_fractal *f)
+/* int	ft_mouse_event(int mouse, int x, int y, t_fractal *f)
 {
 	if (mouse == MOUSE_ZOOMIN)
 		ft_zoom_mouse(f, 0.5, x, y);
@@ -54,7 +60,7 @@ int	ft_mouse_event(int mouse, int x, int y, t_fractal *f)
 	ft_render(f);
 	return (0);
 }
-
+ */
 /* 
 FT_ZOOM - zooming function.
  */
@@ -62,7 +68,8 @@ void	ft_zoom(t_fractal *f, double zoom)
 {
 	double	center_r;
 	double	center_i;
-
+	
+	ft_printf("got to zoom function\n");
 	center_r = f->min_r - f->max_r;
 	center_i = f->max_i - f->min_i;
 	f->max_r = f->max_r + (center_r - zoom * center_r) / 2;

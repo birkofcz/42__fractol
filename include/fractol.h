@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/18 15:57:21 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 15:17:15 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ enum e_keymap
 	KEY_MINUS = 45,
 	KEY_C = 99,
 	KEY_S = 115,
+	KEY_1 = 49,
+	KEY_2 = 50,
+	KEY_3 = 51,
+	KEY_4 = 52,
+	KEY_5 = 53,
+	KEY_6 = 54,
+	KEY_7 = 55,
 	MOUSE_LCLICK = 1,
 	MOUSE_ZOOMIN = 4,
 	MOUSE_ZOOMOUT = 5
@@ -56,7 +63,8 @@ enum e_fractal
 	MANDELBROT = 1,
 	JULIA = 2,
 	BURNING_SHIP = 3,
-	BUDDHABROT = 4
+	BUDDHABROT = 4,
+	PER_MANDELBROT = 5
 };
 
 /* Enum of available color sets */
@@ -101,8 +109,6 @@ void	ft_init_image(t_fractal *f);
 void	ft_layout(t_fractal *f);
 
 
-
-
 /* exit.c - clean exit for the program */
 void	ft_clean_exit(t_fractal *f);
 int		ft_endgame(t_fractal *f);
@@ -110,10 +116,11 @@ int		ft_endgame(t_fractal *f);
 /* Draw fractals functions */
 int		ft_mandelbrot(double cr, double ci);
 int		ft_julia(t_fractal *f, double cr, double ci);
-int		ft_julia_shift(int x, int y, t_fractal *f);
-int		ft_phoenix(double cr, double ci, double pr, double pi);
+int		ft_remarkable_julias(int key, t_fractal *f);
 void	ft_buddhabrot(t_fractal *f);
 int		ft_burning_ship(double cr, double ci);
+int		ft_per_mandelbrot(double cr, double ci);
+
 
 /* utilities.c */
 double	ft_atof(char *str);
