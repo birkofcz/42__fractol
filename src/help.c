@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:55:49 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 17:23:57 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/19 17:30:25 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	ft_help(void)
 	ft_printf("Mandelbrot:\t'1' or 'mandelbrot'\n");
 	ft_printf("Julia:\t\t'2' or 'julia'\n");
 	ft_printf("Burning ship:\t'3' or 'ship'\n\n");
-	ft_printf("Julia parameters are optional.\n");
+	ft_printf("Julia parameters are optional.\n\n");
 }
