@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:03:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 16:57:01 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/20 15:05:24 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ enum e_fractal
 	MANDELBROT = 1,
 	JULIA = 2,
 	BURNING_SHIP = 3,
-	//BUDDHABROT = 4,
 };
 
 /* Enum of available color sets */
@@ -74,7 +73,6 @@ enum e_color
 	COLOR_PSYCHADELIC = 3,
 	COLOR_BLUEGHOST = 4,
 	COLOR_BW = 5
-
 };
 
 /* Basic struct to hold the instance and fractal information */
@@ -84,69 +82,67 @@ typedef struct s_fractal
 	void	*win_p;
 	void	*img_p;
 	char	*img_data;
-	int		f_set;		//chosen fractal set identificator
+	int		f_set;
 	double	min_r;
 	double	max_r;
 	double	min_i;
 	double	max_i;
-	double	start_r;	// real starting point
-	double	start_i;	// imaginary starting point
+	double	start_r;
+	double	start_i;
 	int		color_scheme;
 }	t_fractal;
 
-/* help.c - prints the instruction */
-void	ft_help(void);
-
-/* init.c - initialization of mlx, win, img and fractal info */
-void	ft_init_fractal(t_fractal *f);
-void	ft_read_set(t_fractal *f, char **av);
-void	ft_read_julia_values(t_fractal *f, int ac, char **av);
+/* args.c - to handle arguments */
 void	ft_handle_arguments(t_fractal *f, int ac, char **av);
+void	ft_read_julia_values(t_fractal *f, int ac, char **av);
+void	ft_read_set(t_fractal *f, char **av);
 
-void	ft_init_mlx(t_fractal *f);
-void	ft_init_image(t_fractal *f);
-void	ft_layout(t_fractal *f);
-
-
-/* exit.c - clean exit for the program */
-void	ft_clean_exit(t_fractal *f);
-int		ft_endgame(t_fractal *f);
-
-/* Draw fractals functions */
-int		ft_mandelbrot(double cr, double ci);
-int		ft_julia(t_fractal *f, double cr, double ci);
-int		ft_remarkable_julias(int key, t_fractal *f);
-void	ft_buddhabrot(t_fractal *f);
-int		ft_burning_ship(double cr, double ci);
-int		ft_per_mandelbrot(double cr, double ci);
-
-
-/* utilities.c */
-double	ft_atof(char *str);
-void	print_fractal_state(const t_fractal *f);
-
-/* render.c */
-void	ft_render(t_fractal *f);
-
-/* events.c */
-int		ft_key_event(int key, t_fractal *f);
-int		ft_mouse_event(int mouse, int x, int y, t_fractal *f);
-void	ft_zoom(t_fractal *f, double zoom);
-void	ft_zoom_mouse(t_fractal *f, double zoom, int x, int y);
-void	ft_move(t_fractal *f, double distance, int key);
-void	ft_cycle(int key, t_fractal *f);
-
-/* colors.c */
+/* colors.c - functions for coloring*/
 int		ft_color_electricgreen(int iteration);
 int		ft_color_onatrip(int iteration);
 int		ft_color_psychadelic(int iteration);
 int		ft_color_blueghost(int iteration);
 int		ft_color_blackwhite(int iteration);
 
-/* legend.c */
+/* event_hq.c - crossroad functions for events */
+int		ft_key_event(int key, t_fractal *f);
+int		ft_mouse_event(int mouse, int x, int y, t_fractal *f);
+
+/* events.c */
+void	ft_zoom(t_fractal *f, double zoom);
+void	ft_zoom_mouse(t_fractal *f, double zoom, int x, int y);
+void	ft_move(t_fractal *f, double distance, int key);
+void	ft_cycle(int key, t_fractal *f);
+
+/* exit.c - clean exit for the program */
+void	ft_clean_exit(t_fractal *f);
+int		ft_endgame(t_fractal *f);
+
+/* help.c - prints the instruction */
+void	ft_help(void);
+
+/* init.c - initialization of layout, mlx, win, img and fractal info */
+void	ft_init_fractal(t_fractal *f);
+void	ft_init_mlx(t_fractal *f);
+void	ft_init_image(t_fractal *f);
+void	ft_layout(t_fractal *f);
+
+/* legend.c - to put the legend into the window */
 void	ft_put_legend(t_fractal *f);
 
+/* Draw fractals functions */
+int		ft_mandelbrot(double cr, double ci);
+int		ft_julia(t_fractal *f, double cr, double ci);
+int		ft_remarkable_julias(int key, t_fractal *f);
+int		ft_burning_ship(double cr, double ci);
+
+/* render.c */
+void	ft_render(t_fractal *f);
 int		ft_set_color(t_fractal *f, int iterations);
 void	ft_set_pixel_color(t_fractal *f, int x, int y, int color);
+int		ft_fractal_iterations(t_fractal *f, double pr, double pi);
 
+/* utilities.c */
+double	ft_atof(char *str);
+void	print_fractal_state(const t_fractal *f);
 #endif

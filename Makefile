@@ -6,7 +6,7 @@
 #    By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 15:29:04 by sbenes            #+#    #+#              #
-#    Updated: 2023/05/19 17:10:12 by sbenes           ###   ########.fr        #
+#    Updated: 2023/05/20 09:48:24 by sbenes           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,6 +75,19 @@ $(NAME): $(OBJS)
 	@echo "$(BOLD)$(GREEN)[ 🙊 Compiling shit together... ]$(NC)"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm
 	@echo "$(BOLD)$(GREEN)[ 🪄 Program ready! ]$(NC)"
+	@echo ""
+	@echo "$(BOLD)[ -- Welcome to Fract'ol -- ]$(NC)"
+	@echo ""
+	@echo "$(BOLD)run ./fractol <fractal_set> <opt:julia_param1> <opt:julia_param2>$(NC)"
+	@echo ""
+	@echo "Mandelbrot:   '1' or 'mandelbrot'"
+	@echo "Julia:        '2' or 'julia'"
+	@echo "Burning ship: '3' or 'ship'"
+	@echo ""
+	@echo "Julia parameters are optional."
+	@echo ""
+	@echo "[ -- Have fun ! 😉 -- ]"
+	@echo ""
 
 bonus: all
 

@@ -6,12 +6,15 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:37:06 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 17:20:05 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:51:35 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
-
+/* 
+FT_BURNING_SHIP - 
+Distortion of Mandlebrot set. Uses absolute values of complex numbers.
+ */
 int	ft_burning_ship(double cr, double ci)
 {
 	int		n;

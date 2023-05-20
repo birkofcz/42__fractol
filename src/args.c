@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:40:54 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 17:04:59 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:52:27 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,12 @@ void	ft_read_set(t_fractal *f, char **av)
 	else if ((ft_atoi(av[1]) == 3) || (ft_compare_args(av[1], "ship") == 0))
 		f->f_set = BURNING_SHIP;
 	else
-	{
 		ft_help();
-		exit(0);
-	}
 }
 
 /* 
 FT_READ_JULIA_VALUES - reads the optional arguments for Julia set.
-If none, sets default value.
+If none, sets default value. Prints help and exits in case of bad input
  */
 void	ft_read_julia_values(t_fractal *f, int ac, char **av)
 {
@@ -83,7 +80,7 @@ void	ft_read_julia_values(t_fractal *f, int ac, char **av)
 	f->start_i = ft_atof(av[3]);
 	if (f->start_r >= 2.0 || f->start_r <= -2.0)
 		ft_help();
-	if (f->start_i >= 2.0 || f->start_i <= -2.0)
+	else if (f->start_i >= 2.0 || f->start_i <= -2.0)
 		ft_help();
 }
 

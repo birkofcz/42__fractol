@@ -6,12 +6,17 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 14:07:52 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 15:41:19 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:50:07 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
+/* 
+FT_REMARKABLE_JULIAS 
+Added function to store and cycle some predefined added complex numbers,
+to show some interesting shapes. Cycle is active when showing the Julia factal.
+ */
 int	ft_remarkable_julias(int key, t_fractal *f)
 {
 	double	values[7][2];
@@ -41,6 +46,21 @@ int	ft_remarkable_julias(int key, t_fractal *f)
 	return (0);
 }
 
+/* 
+FT_JULIA-
+Julia works similary to Mandelbrot.
+Mandelbrot uses 0 as a starting value for zr and zi, and
+adds pixel coordinates (cr and ci) every time it iterates.
+
+Julia starts with pixel coordinates as zr and zi and adds another 
+complex number (start_r and start_i) every time it iterates.
+Start_r and start_i  values determine the shape Julia will take on.
+If they are part of the Mandelbrot set, Julia will be a continuous
+solid shape. If not, the Julia fractal will be a disconnected set 
+of separate islands.
+
+There is a basic value of complex number if not specified.
+ */
 int	ft_julia(t_fractal *f, double zr, double zi)
 {
 	int		n;

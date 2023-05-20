@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:30:31 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 17:05:36 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:53:22 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,100 +15,117 @@
 #define PI 3.14159265358979323846
 
 /* 
-FT_COLOR_DEPTHSOFHELL 
-using modulo operator to creates repeating patterns  with sharp transitions
+Color rendering function. The color generated is used to color the pixels. 
+Color depending on how many iterations the pixel have. On the beginning, where 
+needed, the count is bormalize between the 0 and 1 
+((double)iterations / MAX_TERATIONS (100) will give the iterations number
+like 59 = 0.59).
+
+Normalized count is then used to generate RGB color, with 0 - 255 values for 
+every channel. Some mathematic functions are used for that. 
+
+RGB system - Red, Green and Blue channels, where 0 is the absence of that color 
+and 255 is full presence of that color.
+
+Final RGB color is represented as 32bit integer, where RGB channels are 
+bitshifted.
+ */
+
+/* 
+FT_COLOR_PSYCHADELIC
+using modulo operator to create repeating patterns with sharp transitions. 
+Red, green and blue varies between 0 and 255 every n interations. Return
+combines red, green and blue into the single integer using bitshift.
  */
 
 int	ft_color_psychadelic(int iteration)
 {
-    // Normalize iteration count to range [0, 1]
-    //double t = (double)iteration / MAX_ITERATIONS;
-    // Modulus operator creates repeating patterns with sharp transitions
-    int red = (int)(255 * (iteration % 6) / 3.0);   // Red varies between 0 and 255 every 8 iterations
-    int green = (int)(255 * (iteration % 16) / 15.0); // Green varies between 0 and 255 every 16 iterations
-    int blue = (int)(255 * (iteration % 4) / 3.0);  // Blue varies between 0 and 255 every 4 iterations
+	int	red;
+	int	green;
+	int	blue;
 
-    // Combine red, green, and blue into a single integer
-    return (red << 16) | (green << 8) | blue;
+	red = (int)(255 * (iteration % 6) / 3.0);
+	green = (int)(255 * (iteration % 16) / 15.0);
+	blue = (int)(255 * (iteration % 4) / 3.0);
+	return ((red << 16) | (green << 8) | blue);
+}
+
+/* 
+FT_COLOR_ONATRIP
+The line "t = fabs(sin(t * PI * 2)) * 0.5 + 0.5;" transforms 
+the value of t by creating a sinusoidal wave. In this way, 
+the value of t will repeatedly change between 0 and 1,
+ leading to an effect where the color changes repeatedly 
+ with an increasing number of iterations.
+ */
+int	ft_color_onatrip(int iteration)
+{
+	double	t;
+	int		red;
+	int		green;
+	int		blue;
+
+	t = (double)iteration / MAX_ITERATIONS;
+	t = fabs(sin(t * PI * 2)) * 0.5 + 0.5;
+	red = (int)(255 * (1 - cos(t * PI / 2)));
+	green = (int)(255 * (1 - cos((t + 0.33) * PI)));
+	blue = (int)(255 * cos(t * PI / 2));
+	return ((red << 16) | (green << 8) | blue);
 }
 
 /* 
 FT_COLOR_ELECTRICGREEN
-Using abs for bright colors and cos for abrupt changes and * 0.5 + 0.5 to shift
- the result of sin from [-1, 1] to [0, 1]
+The line "t = fabs(sin(t * PI)) * 0.5 + 0.5;" transforms the 
+value of t by creating a sinusoidal wave. In this way, the 
+value of t will repeatedly change between 0 and 1, leading 
+to an effect where the color changes repeatedly with an 
+increasing number of iterations.
+*/
+int	ft_color_electricgreen(int iteration)
+{
+	double	t;
+	int		red;
+	int		green;
+	int		blue;
+
+	t = (double)iteration / MAX_ITERATIONS;
+	t = fabs(sin(t * PI)) * 0.5 + 0.5;
+	red = (int)(255 * pow(1 - t, 3));
+	green = (int)(255 * pow(2 * fabs(t - 0.5), 0.5));
+	blue = (int)(255 * pow(t, 3));
+	return ((red << 16) | (green << 8) | blue);
+}
+
+/* 
+FT_COLOR_BLUEGHOST
  */
-int ft_color_onatrip(int iteration)
+int	ft_color_blueghost(int iteration)
 {
-    double t = (double)iteration / MAX_ITERATIONS;
+	double	t;
+	int		red;
+	int		green;
+	int		blue;
 
-    // sin function to create more abrupt changes
-    // abs function to create bright colors
-    // and * 0.5 + 0.5 to shift the result of sin from [-1, 1] to [0, 1]
-    t = fabs(sin(t * PI * 2)) * 0.5 + 0.5;
-    
-    // Calculate color components
-    int red = (int)(255 * (1 - cos(t * PI / 2)));  // red from [255, 0]
-    int blue = (int)(255 * cos(t * PI / 2));        // blue from [0, 255]
-    int green = (int)(255 * (1 - cos((t + 0.33) * PI)));  // green offset by 0.33 for color variation
-
-    return (red << 16) | (green << 8) | blue ;
+	t = (double)iteration / MAX_ITERATIONS;
+	t = pow(t, 0.5);
+	red = (int)(255 * pow(1 - t, 3));
+	green = (int)(255 * pow(t, 0.8));
+	blue = (int)(255 * pow(t, 0.5));
+	return ((red << 16) | (green << 8) | blue);
 }
 
-int ft_color_electricgreen(int iteration)
+/* 
+FT_COLOR_BLACKWHITE
+Basic black/white spectrum. It is calculated only on values
+between 0 - 255 used for twe whole 32bit int. The result will be 
+absolute white, absolute black and shades of grey.
+ */
+int	ft_color_blackwhite(int iteration)
 {
-    double t = (double)iteration / MAX_ITERATIONS;
+	double	t;
+	int		intensity;
 
-    // sin function to create more abrupt changes
-    // abs function to create bright colors
-    // and * 0.5 + 0.5 to shift the result of sin from [-1, 1] to [0, 1]
-    t = fabs(sin(t * PI)) * 0.5 + 0.5;
-    
-    // Calculate color components
-    int red = (int)(255 * pow(1 - t, 3)); 
-    int blue = (int)(255 * pow(t, 3));      
-    int green = (int)(255 * pow(2 * fabs(t - 0.5), 0.5));  
-
-    return (red << 16) | (green << 8) | blue ;
+	t = (double)iteration / MAX_ITERATIONS;
+	intensity = (int)(255 * t);
+	return ((intensity << 16) | (intensity << 8) | intensity);
 }
-
-int ft_color_blueghost(int iteration)
-{
-    double t = (double)iteration / MAX_ITERATIONS;
-
-    // Adjust t to highlight the structures in the Phoenix fractal
-    t = pow(t, 0.5);
-
-    // Calculate color components
-    int red = (int)(255 * pow(1 - t, 3));
-    int green = (int)(255 * pow(t, 0.8));
-    int blue = (int)(255 * pow(t, 0.5));
-
-    return (red << 16) | (green << 8) | blue;
-}
-
-int ft_color_blackwhite(int iteration) //this one for buddhabrot, looks nice like that
-{
-    double t = (double)iteration / MAX_ITERATIONS;
-    
-    // Calculate color components
-    int intensity = (int)(255 * t);
-    
-    return (intensity << 16) | (intensity << 8) | intensity;
-}
-
-
-/* int generate_basic(int iteration)
-{
-    // Normalize iteration count to range [0, 1]
-    double t = (double)iteration / MAX_ITERATIONS;
-
-    // Calculate color components based on 't'
-    // As 't' increases, red decreases and blue increases
-    int red = (int)(255 * (1 - t));
-    int blue = (int)(255 * t);
-
-    // Combine red and blue to make a purple-ish color, with no green
-    // Shift red 16 bits to the left and blue 8 bits to the left,
-    // then combine them using bitwise OR
-    return (red << 16) | blue;
-} */

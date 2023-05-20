@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 15:53:55 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 17:13:05 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:08:43 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* 
 FT_CYCLE - cycles through the color schemes and fractal sets
-on keypress
+on keypress. Updates the info in struct.
  */
 void	ft_cycle(int key, t_fractal *f)
 {
@@ -41,7 +41,9 @@ void	ft_cycle(int key, t_fractal *f)
 }
 
 /* 
-FT_ZOOM - zooming function.
+FT_ZOOM - zooming function. Works with the complex plane, 
+re-rendering the img based on what is centerpoint before 
+the zoom applies. Creates the ilusion of zooming.
  */
 void	ft_zoom(t_fractal *f, double zoom)
 {
@@ -58,7 +60,8 @@ void	ft_zoom(t_fractal *f, double zoom)
 
 /* 
 FT_ZOOM_MOUSE - zoom with the mouse wheel, uses mouse poiter coordinates
-to zoom complex plane on that point.
+to zoom complex plane on that point. Works similar to ft_zoom, but centering 
+and zoomin based on mouse pointer position.
  */
 void	ft_zoom_mouse(t_fractal *f, double zoom, int x, int y)
 {
@@ -80,8 +83,8 @@ void	ft_zoom_mouse(t_fractal *f, double zoom, int x, int y)
 }
 
 /* 
-FT_MOVE - controls the movement - shofting the center of complex 
-plane for rendering
+FT_MOVE - controls the movement - again, shifting the center of complex 
+plane for re-rendering, creates illusion of movement.
  */
 void	ft_move(t_fractal *f, double distance, int key)
 {

@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:24:11 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 17:18:59 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:01:31 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ void	ft_init_fractal(t_fractal *f)
 	f->color_scheme = 1;
 }
 
+/* 
+FT_LAYOUT - sets the complex plane layout for calculations.
+Julia needs a little more space.
+ */
 void	ft_layout(t_fractal *f)
 {
 	if (f->f_set == JULIA)
@@ -49,6 +53,11 @@ void	ft_layout(t_fractal *f)
 	}
 }
 
+/* 
+FT_INIT_IMAGE
+FT_INIT_MLX
+Helper functions to initialize the mlx, window and image. 
+ */
 void	ft_init_image(t_fractal *f)
 {
 	int		bpp;
@@ -61,15 +70,6 @@ void	ft_init_image(t_fractal *f)
 		ft_clean_exit(f);
 	tmp = mlx_get_data_addr(f->img_p, &bpp, &line_size, &endian);
 	f->img_data = tmp;
-}
-
-void	ft_clean_img(t_fractal *f)
-{
-	if (f->mlx_p && f->img_p)
-		mlx_destroy_image(f->mlx_p, f->img_p);
-	if (f->img_data)
-		f->img_data = NULL;
-	ft_init_image(f);
 }
 
 void	ft_init_mlx(t_fractal *f)

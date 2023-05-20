@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:21:21 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 17:19:19 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/20 13:56:56 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,11 @@ static char	*ft_put_move(void)
 	return (move);
 }
 
+/* 
+FT_PUT_LEGEND - used to write information to the graphic window, 
+based on what is shown. All the static functions above are helper
+functions to generate the proper string based on the content.
+ */
 void	ft_put_legend(t_fractal *f)
 {
 	mlx_string_put(f->mlx_p, f->win_p, 20, 20, 0xFFFFFF, ft_put_set(f));

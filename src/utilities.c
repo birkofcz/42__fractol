@@ -6,7 +6,7 @@
 /*   By: sbenes <sbenes@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:48:26 by sbenes            #+#    #+#             */
-/*   Updated: 2023/05/19 17:15:20 by sbenes           ###   ########.fr       */
+/*   Updated: 2023/05/20 10:20:07 by sbenes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ double	ft_atof(char *str)
 		div *= 0.1;
 		i++;
 	}
+	if (str[i] && !ft_isdigit(str[i]))
+		return (-100);
 	return (nb * is_neg);
 }
 
